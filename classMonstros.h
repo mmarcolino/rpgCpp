@@ -6,22 +6,17 @@ class Animal{
 
 private:
 
-int hp; // Pontos de Vida
-int mp; // Pontos de Mana
-int forcaFis; // Forca fisica da classe
-int forcaMag; // Forca magica da classe
-int armorClass; // Armadura da classe (resistencia a dano fisico)
-int magicResistance; // Resistencia a dano magico
-int agility; // Probabilidade de esquiva
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
+
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
 
-int *armasDisponiveis; // Vetor de controle citando os indices das armas que podem ser utilizadas pela classe 
-
-int danoArma; // Variavel que controla o dano que a arma carregada da
-
-int nivelArma; // Variavel que cita em que nivel de arma o player esta. Se o vetor de armas dele for por ex. [1,3,5,7] o nivelArma = 2 seria equivalente ao indice 2 do vetor (5)
-
-int *magiasDisponiveis; // Vetor que mostra quais magias o jogador podera utilizar dependendo da classe escolhida
 
 
 public:
@@ -29,13 +24,11 @@ Animal(); // Construtor de classe que da valor a todos os atributos acima
 
 void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-int calculaAtaqueFisico(); // Funcao que calcula o ataque fisico que sera dado
+int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-int calculaAtaqueMagico(); // Funcao que calcula o ataque magico que sera dado
+int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-int usarMagia(); // Se a magia escolhida for de cura a funcao vai retornar -1. Se nao, ela retorna o dano a ser aplicado no inimigo 
-
-void trocarArma(int armasArray[]); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
 };
 
@@ -45,75 +38,56 @@ class Troll{
 
 private:
 
-int hp; // Pontos de Vida
-int mp; // Pontos de Mana
-int forcaFis; // Forca fisica da classe
-int forcaMag; // Forca magica da classe
-int armorClass; // Armadura da classe (resistencia a dano fisico)
-int magicResistance; // Resistencia a dano magico
-int agility; // Probabilidade de esquiva
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
 
-
-int *armasDisponiveis; // Vetor de controle citando os indices das armas que podem ser utilizadas pela classe 
-
-int danoArma; // Variavel que controla o dano que a arma carregada da
-
-int nivelArma; // Variavel que cita em que nivel de arma o player esta. Se o vetor de armas dele for por ex. [1,3,5,7] o nivelArma = 2 seria equivalente ao indice 2 do vetor (5)
-
-int *magiasDisponiveis; // Vetor que mostra quais magias o jogador podera utilizar dependendo da classe escolhida
-
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
 public:
 Troll(); // Construtor de classe que da valor a todos os atributos acima
 
 void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-int calculaAtaqueFisico(); // Funcao que calcula o ataque fisico que sera dado
+int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-int calculaAtaqueMagico(); // Funcao que calcula o ataque magico que sera dado
+int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-int usarMagia(); // Se a magia escolhida for de cura a funcao vai retornar -1. Se nao, ela retorna o dano a ser aplicado no inimigo 
-
-void trocarArma(int armasArray[]); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
 };
 
 
 
-class Dragao{
+class Dragon{
 
 private:
 
-int hp; // Pontos de Vida
-int mp; // Pontos de Mana
-int forcaFis; // Forca fisica da classe
-int forcaMag; // Forca magica da classe
-int armorClass; // Armadura da classe (resistencia a dano fisico)
-int magicResistance; // Resistencia a dano magico
-int agility; // Probabilidade de esquiva
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
 
-
-int *armasDisponiveis; // Vetor de controle citando os indices das armas que podem ser utilizadas pela classe 
-
-int danoArma; // Variavel que controla o dano que a arma carregada da
-
-int nivelArma; // Variavel que cita em que nivel de arma o player esta. Se o vetor de armas dele for por ex. [1,3,5,7] o nivelArma = 2 seria equivalente ao indice 2 do vetor (5)
-
-int *magiasDisponiveis; // Vetor que mostra quais magias o jogador podera utilizar dependendo da classe escolhida
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
 
 public:
-Dragao(); // Construtor de classe que da valor a todos os atributos acima
+Dragon(); // Construtor de classe que da valor a todos os atributos acima
 
 void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-int calculaAtaqueFisico(); // Funcao que calcula o ataque fisico que sera dado
+int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-int calculaAtaqueMagico(); // Funcao que calcula o ataque magico que sera dado
+int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-int usarMagia(); // Se a magia escolhida for de cura a funcao vai retornar -1. Se nao, ela retorna o dano a ser aplicado no inimigo 
-
-void trocarArma(int armasArray[]); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
 };
 
@@ -121,39 +95,29 @@ void trocarArma(int armasArray[]); // Funcao encarregada por fazer o upgrade de 
 
 
 
-class Zumbi{
+class Zombie{
 
 private:
 
-int hp; // Pontos de Vida
-int mp; // Pontos de Mana
-int forcaFis; // Forca fisica da classe
-int forcaMag; // Forca magica da classe
-int armorClass; // Armadura da classe (resistencia a dano fisico)
-int magicResistance; // Resistencia a dano magico
-int agility; // Probabilidade de esquiva
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
 
-
-int *armasDisponiveis; // Vetor de controle citando os indices das armas que podem ser utilizadas pela classe 
-
-int danoArma; // Variavel que controla o dano que a arma carregada da
-
-int nivelArma; // Variavel que cita em que nivel de arma o player esta. Se o vetor de armas dele for por ex. [1,3,5,7] o nivelArma = 2 seria equivalente ao indice 2 do vetor (5)
-
-int *magiasDisponiveis; // Vetor que mostra quais magias o jogador podera utilizar dependendo da classe escolhida
-
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
 public:
-Zumbi(); // Construtor de classe que da valor a todos os atributos acima
+Zombie(); // Construtor de classe que da valor a todos os atributos acima
 
 void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-int calculaAtaqueFisico(); // Funcao que calcula o ataque fisico que sera dado
+int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-int calculaAtaqueMagico(); // Funcao que calcula o ataque magico que sera dado
+int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-int usarMagia(); // Se a magia escolhida for de cura a funcao vai retornar -1. Se nao, ela retorna o dano a ser aplicado no inimigo 
-
-void trocarArma(int armasArray[]); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
 };

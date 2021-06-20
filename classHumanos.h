@@ -2,122 +2,115 @@
 
 using namespace std;
 
-class Guerreiro
+class Warrior
 {
-    private:
-    int hp; //Pontos de vida
-    int mp; //Pontos de mana
-    int fisicalStrengh; //Força porradeiro
-    int magicalStengh;  //Força mágica
-    int armor;  //Armadura
-    int magicResistance; //Resistência à magia
-    int agility; //Agilidade
 
-    int *weapons; //Vetor das armas
-    int weaponDamage; //Dano da arma
-    int weaponLevel; //Nível da arma
-    int *spells; //Magias/Encantamentos
+    private:
+
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
+
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
     public:
-    Guerreiro();
+    Warrior(); // Construtor de classe que da valor a todos os atributos acima
 
-    void receivedDamage(int damage); //Calcula o dano sofrido pelo jogador
+    void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-    int fisicalDamageCalculator(); //Calcula o dano físico que o jogador irá causar
+    int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-    int magicalDamageCalculator(); //Caclucla o dano mágico que o jogador irá causar
+    int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-    int useSpell(int spells[]); //Função para escolher diferentes magias.
+    void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int changeWeapon(int weapons[]); //Função para escolher armas diferentes.
 };
 
-class Ladrao
+class Thief
 {
-    private:
-    int hp; //Pontos de vida
-    int mp; //Pontos de mana
-    int fisicalStrengh; //Força porradeiro
-    int magicalStengh;  //Força mágica
-    int armor;  //Armadura
-    int magicResistance; //Resistência à magia
-    int agility; //Agilidade
 
-    int *weapons; //Vetor das armas
-    int weaponDamage; //Dano da arma
-    int weaponLevel; //Nível da arma
-    int *spells; //Magias/Encantamentos
+    private:
+
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
+
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
     public:
-    Ladrao();
+    Thief(); // Construtor de classe que da valor a todos os atributos acima
 
-    void receivedDamage(int damage); //Calcula o dano sofrido pelo jogador
+    void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-    int fisicalDamageCalculator(); //Calcula o dano físico que o jogador irá causar
+    int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-    int magicalDamageCalculator(); //Caclucla o dano mágico que o jogador irá causar
+    int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-    int useSpell(int spells[]); //Função para escolher diferentes magias.
+    void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int changeWeapon(int weapons[]); //Função para escolher armas diferentes.
 };
 
-class Mago
+class Wizard
 {
-    private:
-    int hp; //Pontos de vida
-    int mp; //Pontos de mana
-    int fisicalStrengh; //Força porradeiro
-    int magicalStengh;  //Força mágica
-    int armor;  //Armadura
-    int magicResistance; //Resistência à magia
-    int agility; //Agilidade
 
-    int *weapons; //Vetor das armas
-    int weaponDamage; //Dano da arma
-    int weaponLevel; //Nível da arma
-    int *spells; //Magias/Encantamentos
+    private:
+
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
+    int maxMana;
+
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
     public:
-    Mago();
+    Wizard(); // Construtor de classe que da valor a todos os atributos acima
 
-    void receivedDamage(int damage); //Calcula o dano sofrido pelo jogador
+    void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-    int fisicalDamageCalculator(); //Calcula o dano físico que o jogador irá causar
+    int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-    int magicalDamageCalculator(); //Caclucla o dano mágico que o jogador irá causar
+    int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-    int useSpell(int spells[]); //Função para escolher diferentes magias.
+    void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int changeWeapon(int weapons[]); //Função para escolher armas diferentes.
 };
 
-class Paladino
+class Paladin
 {
-    private:
-    int hp; //Pontos de vida
-    int mp; //Pontos de mana
-    int fisicalStrengh; //Força porradeiro
-    int magicalStengh;  //Força mágica
-    int armor;  //Armadura
-    int magicResistance; //Resistência à magia
-    int agility; //Agilidade
 
-    int *weapons; //Vetor das armas
-    int weaponDamage; //Dano da arma
-    int weaponLevel; //Nível da arma
-    int *spells; //Magias/Encantamentos
+    private:
+
+    int hp; // Pontos de Vida
+    int physicalStrenght; // Forca fisica da classe
+    int magicalStrenght; // Forca magica da classe
+    int armor; // Armadura da classe (resistencia a dano fisico)
+    int magicResistance; // Resistencia a dano magico
+    int agility; // Probabilidade de esquiva
+    int maxMana;
+
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
 
     public:
-    Paladino();
+    Paladin(); // Construtor de classe que da valor a todos os atributos acima
 
-    void receivedDamage(int damage); //Calcula o dano sofrido pelo jogador
+    void recebeDano(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-    int fisicalDamageCalculator(); //Calcula o dano físico que o jogador irá causar
+    int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
-    int magicalDamageCalculator(); //Caclucla o dano mágico que o jogador irá causar
+    int magicalDamageCalculator(Magic *magic); // Funcao que calcula o ataque magico que sera dado
 
-    int useSpell(int spells[]); //Função para escolher diferentes magias.
+    void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int changeWeapon(int weapons[]); //Função para escolher armas diferentes.
 };
