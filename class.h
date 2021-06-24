@@ -18,18 +18,11 @@ class ICharacter{
     int magicalResistance; // Resistencia a dano magico
     int agility; // Probabilidade de esquiva
     int maxMana;
-<<<<<<< HEAD
 
     
 
 
 
-=======
-    Weapons *weapons;
-    Magic *magic;
-    
-    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
     public:
 
     virtual int receiveDamage(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
@@ -80,11 +73,7 @@ class Thief : public ICharacter{
     
     public:
 
-<<<<<<< HEAD
     Thief (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Thief ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -108,11 +97,7 @@ class Wizard : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Wizard (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Wizard ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -136,11 +121,7 @@ class Paladin : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Paladin (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Paladin ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -164,11 +145,7 @@ class Animal : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Animal (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Animal ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -192,11 +169,7 @@ class Troll : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Troll (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Troll ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -220,11 +193,7 @@ class Dragon : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Dragon (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Dragon ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
@@ -248,11 +217,7 @@ class Zombie : public ICharacter{
 
     public:
 
-<<<<<<< HEAD
     Zombie (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
-=======
-    Zombie ();// Construtor de classe que da valor a todos os atributos acima
->>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
     int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
