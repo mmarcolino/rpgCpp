@@ -2,6 +2,8 @@
 #include <string.h>
 #include <weapons.h>
 #include <spells.h>
+#include <cstdlib>
+#include<ctime>
 
 using namespace std;
 
@@ -16,14 +18,21 @@ class ICharacter{
     int magicalResistance; // Resistencia a dano magico
     int agility; // Probabilidade de esquiva
     int maxMana;
+<<<<<<< HEAD
 
     
 
 
 
+=======
+    Weapons *weapons;
+    Magic *magic;
+    
+    int weaponIndex[7] = {0, 0, 0, 0, 0, 0, 0};
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
     public:
 
-    virtual void receiveDamage(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    virtual int receiveDamage(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     virtual int physicalDamageCalculator(Weapons *weapons); // Funcao que calcula o ataque fisico que sera dado
 
@@ -31,6 +40,7 @@ class ICharacter{
 
     virtual void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
+    virtual int dodgeCalculator(int agility); //Função para calcular a esquiva do personagem
 };
 
 class Warrior : public ICharacter{
@@ -47,13 +57,15 @@ class Warrior : public ICharacter{
 
     Warrior (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Warrior (); //Função destrutora
 };
@@ -68,15 +80,21 @@ class Thief : public ICharacter{
     
     public:
 
+<<<<<<< HEAD
     Thief (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Thief ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Thief (); //Função destrutora
 };
@@ -90,15 +108,21 @@ class Wizard : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Wizard (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Wizard ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Wizard (); //Função destrutora
 };
@@ -112,15 +136,21 @@ class Paladin : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Paladin (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Paladin ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Paladin (); //Função destrutora
 };
@@ -134,15 +164,21 @@ class Animal : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Animal (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Animal ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Animal (); //Função destrutora
 };
@@ -156,15 +192,21 @@ class Troll : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Troll (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Troll ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Troll (); //Função destrutora
 };
@@ -178,15 +220,21 @@ class Dragon : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Dragon (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Dragon ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Dragon (); //Função destrutora
 };
@@ -200,15 +248,21 @@ class Zombie : public ICharacter{
 
     public:
 
+<<<<<<< HEAD
     Zombie (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
+=======
+    Zombie ();// Construtor de classe que da valor a todos os atributos acima
+>>>>>>> 3874e4c5d887dbbddc0e623fd1e373101b5c137e
 
-    void receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator(Weapons *Weapons) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(Magic *magic) override; // Funcao que calcula o ataque magico que sera dado
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+
+    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
 
     ~Zombie (); //Função destrutora
 };
