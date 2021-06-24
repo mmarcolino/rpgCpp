@@ -20,7 +20,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
 
 }
 
-int Warrior :: dodgeCalculator(int agility) //Função para calcular a esquiva
+int Warrior :: dodgeCalculator() //Função para calcular a esquiva
 {
 
     int dodge = (rand() % 100) + 1; //Sorteia um número de 1 a 100 
@@ -34,7 +34,7 @@ int Warrior :: dodgeCalculator(int agility) //Função para calcular a esquiva
 
 int Warrior :: receiveDamage(int damage) //função para calcular o dano recebido
 {
-    if (dodgeCalculator(this->agility) == 1) //Função para calcular a esquiva
+    if (dodgeCalculator() == 1) //Função para calcular a esquiva
     return 0;
 
     int effectiveDamage = damage - (damage * (this->armor/100)); //Absorção de dano
@@ -65,6 +65,8 @@ void Warrior :: changeWeapon(Weapons *weapons) //Função para a troca de armas
 
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
+    delete magic;
+    delete weapons;
     
 };
 

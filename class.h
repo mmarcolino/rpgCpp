@@ -33,7 +33,7 @@ class ICharacter{
 
     virtual void changeWeapon(Weapons *weapons); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    virtual int dodgeCalculator(int agility); //Função para calcular a esquiva do personagem
+    virtual int dodgeCalculator(); //Função para calcular a esquiva do personagem
 };
 
 class Warrior : public ICharacter{
@@ -58,7 +58,7 @@ class Warrior : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Warrior (); //Função destrutora
 };
@@ -83,7 +83,7 @@ class Thief : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Thief (); //Função destrutora
 };
@@ -107,7 +107,7 @@ class Wizard : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Wizard (); //Função destrutora
 };
@@ -131,7 +131,7 @@ class Paladin : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Paladin (); //Função destrutora
 };
@@ -155,7 +155,7 @@ class Animal : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Animal (); //Função destrutora
 };
@@ -179,7 +179,7 @@ class Troll : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Troll (); //Função destrutora
 };
@@ -203,7 +203,7 @@ class Dragon : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Dragon (); //Função destrutora
 };
@@ -227,7 +227,8 @@ class Zombie : public ICharacter{
 
     void changeWeapon(Weapons *weapons) override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    int dodgeCalculator(int agility) override; //Função para calcular a esquiva do personagem
+    int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     ~Zombie (); //Função destrutora
 };
+ 
