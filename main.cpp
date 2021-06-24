@@ -1,7 +1,3 @@
-#include "classArmas.h"
-#include "classMonstros.h"
-#include "classHumanos.h"
-#include "classMagia.h"
 
 
 Animal::Animal()
