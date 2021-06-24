@@ -18,6 +18,9 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
 
     magic -> initialMp(this-> maxMana);
 
+    weaponIndex[0] = 2;
+    weaponIndex[1] = 6;
+
 }
 
 int Warrior :: dodgeCalculator() //Função para calcular a esquiva
@@ -48,17 +51,17 @@ int Warrior :: receiveDamage(int damage) //função para calcular o dano recebid
     return effectiveDamage;
 }
 
-int Warrior :: physicalDamageCalculator (Weapons *qeapons) //Função para calcular o dano físico infligido no inimigo
+int Warrior :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+{
+    
+}
+
+int Warrior :: magicalDamageCalculator () //Função para calcular o dano mágico infligido no inimigo
 {
 
 }
 
-int Warrior :: magicalDamageCalculator (Magic *magic) //Função para calcular o dano mágico infligido no inimigo
-{
-
-}
-
-void Warrior :: changeWeapon(Weapons *weapons) //Função para a troca de armas
+void Warrior :: changeWeapon() //Função para a troca de armas
 {
 
 }
@@ -69,4 +72,3 @@ Warrior :: ~Warrior() //Função para destruir o personagem
     delete weapons;
     
 };
-

@@ -6,7 +6,7 @@ class Weapons{
 
 private:
 
-int weapons[7] = {300, 420,500,380,250,420,400};
+int weapons[7] = {250, 300, 380, 400, 420, 420, 500}; 
 int weaponDamage; //Dano da arma
 int weaponLevel = 0; //Nível da arma
 
