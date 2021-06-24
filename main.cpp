@@ -3,7 +3,6 @@
 #include "classHumanos.h"
 #include "classMagia.h"
 
-
 Animal::Animal()
 {
 
