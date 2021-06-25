@@ -13,7 +13,7 @@ int weaponLevel = 0; //Nível da arma
 
 public:
 Weapons(); // Construtor de classe que da valor a todos os atributos acima
-void setInicialDamage();
+void setInicialDamage(int index);
 void upgrade(int weaponArray[]);
 int returnDamage();
 };
@@ -21,4 +21,12 @@ int returnDamage();
 int Weapons :: returnDamage()
 {
     return weaponDamage;
+}
+
+
+void Weapons :: setInicialDamage(int index)
+{
+
+    this->weaponDamage = this->weapons[index];
+
 }
