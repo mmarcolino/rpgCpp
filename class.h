@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string.h>
-#include <weapons.h>
-#include <spells.h>
+#include "weapons.h"
+#include "spells.h"
 #include <cstdlib>
 #include<ctime>
 
@@ -31,6 +31,10 @@ class ICharacter{
     virtual void changeWeapon(); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     virtual int dodgeCalculator(); //Função para calcular a esquiva do personagem
+
+    virtual void initializeClass();
+
+    virtual void imprime();
 };
 
 class Warrior : public ICharacter{
@@ -57,6 +61,10 @@ class Warrior : public ICharacter{
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
+    void initializeClass() override;
+
+    void imprime() override; // TESTE!!!!!!!!!!!!
+
     ~Warrior (); //Função destrutora
 };
 
@@ -82,6 +90,8 @@ class Thief : public ICharacter{
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
+    void initializeClass() override;
+
     ~Thief (); //Função destrutora
 };
 
@@ -105,6 +115,8 @@ class Wizard : public ICharacter{
     void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
+
+    void initializeClass() override;
 
     ~Wizard (); //Função destrutora
 };
@@ -130,6 +142,8 @@ class Paladin : public ICharacter{
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
+    void initializeClass() override;
+
     ~Paladin (); //Função destrutora
 };
 
@@ -153,6 +167,8 @@ class Animal : public ICharacter{
     void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
+
+    void initializeClass() override;
 
     ~Animal (); //Função destrutora
 };
@@ -178,6 +194,8 @@ class Troll : public ICharacter{
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
+    void initializeClass() override;
+
     ~Troll (); //Função destrutora
 };
 
@@ -202,13 +220,15 @@ class Dragon : public ICharacter{
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
+    void initializeClass() override;
+
     ~Dragon (); //Função destrutora
 };
 
 class Zombie : public ICharacter{
     private:
 
-    int attributes [7] = {2.500, 20, 40, 20, 40, 80, 50};
+    int attributes [7] = {2500, 20, 40, 20, 40, 80, 50};
     Magic *magic; 
     Weapons *weapons;
 
@@ -225,6 +245,8 @@ class Zombie : public ICharacter{
     void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
+
+    void initializeClass() override;
 
     ~Zombie (); //Função destrutora
 };

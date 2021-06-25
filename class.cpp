@@ -1,4 +1,4 @@
-#include <class.h>
+#include "class.h"
 
 Warrior :: Warrior(Magic *magic, Weapons *weapons)
 {
@@ -74,9 +74,26 @@ void Warrior :: changeWeapon() //Função para a troca de armas
 
 }
 
+void Warrior :: initializeClass()
+{
+    weapons->setInicialDamage(weaponIndex[0]);
+    magic->initialMp(maxMana);
+}
+
+
+void Warrior :: imprime()
+{
+
+cout<<"\n"<<this->hp<<"\n";
+
+
+}
+
+
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
     delete magic;
     delete weapons;
     
+
 };
