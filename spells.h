@@ -15,10 +15,25 @@ std::string magicName[7] = {"Poção da Vida" , "Hálito de Fogo" , "Bio" , "Cur
 public:
 Magic(); // Construtor de classe que da valor a todos os atributos acima
 void initialMp(int maxMana);
+int getMp();
 
 int baseMagicDamage(int choice);
 
 };
+
+//******************************************************************************************************//
+
+int Magic :: getMp()
+{
+    return this->mp;
+}
+
+
+void Magic :: initialMp(int maxMana)
+{
+    this->mp = maxMana;
+}
+
 
 int Magic::baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA DO PERSONAGEM) A SER CALCULADO
 {
