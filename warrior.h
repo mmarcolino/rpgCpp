@@ -35,12 +35,16 @@ int Warrior :: dodgeCalculator() //Função para calcular a esquiva
     return 0;
 }
 
-int Warrior :: receiveDamage(int damage) //função para calcular o dano recebido
+int Warrior :: receiveDamage(int damageBase) //função para calcular o dano recebido
 {
     if (dodgeCalculator() == 1) //Função para calcular a esquiva
     return 0;
 
-    int effectiveDamage = damage - (damage * (this->armor/100)); //Absorção de dano
+    float damage = damageBase;
+
+    float effectiveDamage2 = damage - (damage * (  (float) (this->armor)  / (100.0) )); //Absorção de dano
+
+    int effectiveDamage = effectiveDamage2;
 
     if (effectiveDamage > this -> hp)
     this -> hp = 0;
@@ -55,6 +59,8 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 {
     int damage = (rand() % 200) + 1;
 
+    cout<<"\n"<< damage << "\n";
+
     damage += this -> weapons ->  returnDamage () - 200;
 
     float strengh = this -> physicalStrenght;
@@ -66,7 +72,7 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 
 int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o dano mágico infligido no inimigo
 {
-    
+return escolha;    
 }
 
 void Warrior :: changeWeapon() //Função para a troca de armas

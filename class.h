@@ -22,20 +22,24 @@ class ICharacter{
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     public:
 
-    virtual int receiveDamage(int damage); // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    virtual int receiveDamage(int damage) {}; // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
-    virtual int physicalDamageCalculator(); // Funcao que calcula o ataque fisico que sera dado
+    virtual int physicalDamageCalculator() {}; // Funcao que calcula o ataque fisico que sera dado
 
-    virtual int magicalDamageCalculator(int escolha); // Funcao que calcula o ataque magico que sera dado
+    virtual int magicalDamageCalculator(int escolha) {}; // Funcao que calcula o ataque magico que sera dado
 
-    virtual void changeWeapon(); // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    virtual void changeWeapon() {}; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
-    virtual int dodgeCalculator(); //Função para calcular a esquiva do personagem
+    virtual int dodgeCalculator() {}; //Função para calcular a esquiva do personagem
 
-    virtual void initializeClass();
+    virtual void initializeClass() {};
 
-    virtual void imprime();
+    virtual void imprime() {};
+
 };
+
+
+
 
 class Warrior : public ICharacter{
     

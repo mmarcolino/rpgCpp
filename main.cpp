@@ -1,6 +1,4 @@
-#include "class.h"
-#include "weapons.h"
-#include "spells.h"
+#include "warrior.h"
 #include <stdlib.h>
 
 int main()

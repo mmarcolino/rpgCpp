@@ -18,6 +18,12 @@ void upgrade(int weaponArray[]);
 int returnDamage();
 };
 
+Weapons :: Weapons()
+{
+    
+}
+
+
 int Weapons :: returnDamage()
 {
     return weaponDamage;
