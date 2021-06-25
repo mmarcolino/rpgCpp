@@ -53,12 +53,20 @@ int Warrior :: receiveDamage(int damage) //função para calcular o dano recebid
 
 int Warrior :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
 {
-    
+    int damage = (rand() % 200) + 1;
+
+    damage += this -> weapons ->  returnDamage () - 200;
+
+    float strengh = this -> physicalStrenght;
+
+    damage *= 1 + (strengh / 100);
+
+    return damage;
 }
 
-int Warrior :: magicalDamageCalculator () //Função para calcular o dano mágico infligido no inimigo
+int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o dano mágico infligido no inimigo
 {
-
+    
 }
 
 void Warrior :: changeWeapon() //Função para a troca de armas
