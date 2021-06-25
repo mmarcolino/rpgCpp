@@ -19,3 +19,24 @@ void initialMp(int maxMana);
 int baseMagicDamage(int choice);
 
 };
+
+int Magic::baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA DO PERSONAGEM) A SER CALCULADO
+{
+
+    int damage = 0;
+
+    if(this->mp > this->manaWaste[choice])
+    {
+        this->mp -= this->manaWaste[choice];
+        damage = magic[choice];
+
+        return damage;
+    }
+
+
+    else
+    {
+        return -1; // CASO NAO HAJA PONTOS DE MANA SUFICIENTE, RETORNA -1 PARA INDICAR.
+    }
+
+}
