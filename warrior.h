@@ -134,7 +134,7 @@ int Warrior :: showMagicMenu()
         for(int i = 0; i < counter; i++ )
         {
 
-            if(answer == i){ breaker = 1; break;}
+            if(answer - 1 == i){ breaker = 1; break;}
 
         }
 
@@ -144,7 +144,8 @@ int Warrior :: showMagicMenu()
 
     }
 
-    if(magic->typeMagic[answer - 1] == 0){ this-> hp += magic->magic[answer - 1]; } 
+
+    if(magic->typeMagic[answer - 1] == 0){ hp += magic->magic[answer - 1];} 
 
     else if(magic->typeMagic[answer - 1] == 1)
     {

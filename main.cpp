@@ -26,16 +26,18 @@ p2 = new Warrior(mp2, wp2);
 p2->initializeClass();
 
 
-int teste;
+//int teste;
 
-teste = p1->physicalDamageCalculator();
+//teste = p1->physicalDamageCalculator();
 
-cout<<"\n"<<teste<<"\n";
+//cout<<"\n"<<teste<<"\n";
 
-p2->receiveDamage(teste);
+//p2->receiveDamage(teste);
 
 p2->imprime();
 
 p1->showMagicMenu();
+
+p1->imprime();
 
 }
