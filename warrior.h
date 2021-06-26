@@ -99,7 +99,7 @@ cout<<"\n"<<this->hp<<"\n";
 
 
 
-int Warrior :: showMagicMenu()
+int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no main
 {
 
     cout << string( 100, '\n' );
@@ -145,7 +145,7 @@ int Warrior :: showMagicMenu()
     }
 
 
-    if(magic->typeMagic[answer - 1] == 0){ hp += magic->magic[answer - 1];} 
+    if(magic->typeMagic[answer - 1] == 0){ hp += magic->magic[answer - 1]; return 0; } 
 
     else if(magic->typeMagic[answer - 1] == 1)
     {
