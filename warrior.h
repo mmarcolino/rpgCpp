@@ -84,8 +84,6 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 {
     int damage = (rand() % 200) + 1;
 
-    cout<<this -> weapons ->  returnDamage ()<<"\n";
-
     damage += this -> weapons ->  returnDamage () - 200;
 
     float strengh = this -> physicalStrenght;

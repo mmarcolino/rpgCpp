@@ -1,6 +1,4 @@
 #include "warrior.h"
-#include <stdlib.h>
-
 int main()
 {
     //Declaração de variáveis
@@ -138,7 +136,7 @@ int main()
     }
     while(1)
     {
-        //***********************TURNO PLAYER 1******************************************    
+        //***********************TURNO PLAYER 1******************************************  
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
             int magicMenu;

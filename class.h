@@ -295,8 +295,8 @@ class Zombie : public ICharacter{
     Zombie (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
     int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
-
-    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por eles
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
