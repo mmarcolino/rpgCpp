@@ -36,6 +36,8 @@ class ICharacter{
 
     virtual void imprime() {};
 
+    virtual int showMagicMenu() {};
+
 };
 
 
@@ -69,6 +71,8 @@ class Warrior : public ICharacter{
 
     void imprime() override; // TESTE!!!!!!!!!!!!
 
+    int showMagicMenu() override;
+
     ~Warrior (); //Função destrutora
 };
 
@@ -96,6 +100,8 @@ class Thief : public ICharacter{
 
     void initializeClass() override;
 
+    int showMagicMenu() override;
+
     ~Thief (); //Função destrutora
 };
 
@@ -121,6 +127,8 @@ class Wizard : public ICharacter{
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     void initializeClass() override;
+
+    int showMagicMenu() override;
 
     ~Wizard (); //Função destrutora
 };
@@ -148,6 +156,8 @@ class Paladin : public ICharacter{
 
     void initializeClass() override;
 
+    int showMagicMenu() override;
+
     ~Paladin (); //Função destrutora
 };
 
@@ -173,6 +183,10 @@ class Animal : public ICharacter{
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     void initializeClass() override;
+
+    int showMagicMenu() override;
+
+    
 
     ~Animal (); //Função destrutora
 };
@@ -200,6 +214,8 @@ class Troll : public ICharacter{
 
     void initializeClass() override;
 
+    int showMagicMenu() override;
+
     ~Troll (); //Função destrutora
 };
 
@@ -225,6 +241,8 @@ class Dragon : public ICharacter{
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
     void initializeClass() override;
+
+    int showMagicMenu() override;
 
     ~Dragon (); //Função destrutora
 };
@@ -252,6 +270,8 @@ class Zombie : public ICharacter{
 
     void initializeClass() override;
 
+    int showMagicMenu() override;
+    
     ~Zombie (); //Função destrutora
 };
  

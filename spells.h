@@ -41,7 +41,7 @@ void Magic :: initialMp(int maxMana)
 }
 
 
-int Magic::baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA DO PERSONAGEM) A SER CALCULADO
+int Magic :: baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA DO PERSONAGEM) A SER CALCULADO
 {
 
     int damage = 0;
@@ -61,3 +61,4 @@ int Magic::baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA D
     }
 
 }
+
