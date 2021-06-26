@@ -35,7 +35,7 @@ class ICharacter{
 
     virtual void initializeClass() {};
 
-    virtual void imprime() {};
+    virtual int imprime() {};
 
     virtual int showMagicMenu() {};
 
@@ -72,7 +72,7 @@ class Warrior : public ICharacter{
 
     void initializeClass() override;
 
-    void imprime() override; // TESTE!!!!!!!!!!!!
+    int imprime() override; // TESTE!!!!!!!!!!!!
 
     int showMagicMenu() override; 
     

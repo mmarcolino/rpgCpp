@@ -101,7 +101,7 @@ void Warrior :: initializeClass()
 }
 
 
-void Warrior :: imprime()
+int Warrior :: imprime()
 {
 
 cout<<"\n"<<this->hp<<"\n";
