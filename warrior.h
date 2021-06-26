@@ -105,7 +105,7 @@ void Warrior :: initializeClass()
 }
 
 
-void Warrior :: imprime()
+int Warrior :: imprime()
 {
 
 cout<<"\n"<<this->hp<<"\n";
@@ -192,7 +192,16 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
     cout<<"\n";
 }
 
+int Warrior :: addMana()
+{
+    int extraMana = magic->manaAfterRound();
 
+    if(extraMana > maxMana)
+    {
+        magic->mp = maxMana;
+    }
+
+}
 
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
