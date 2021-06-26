@@ -19,11 +19,16 @@ class ICharacter{
     int agility; // Probabilidade de esquiva
     int maxMana;
 
+    int maxHp;
+
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     int spellIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     public:
 
-    virtual int receiveDamage(int damage) {}; // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    virtual int receiveDamagePhys(int damage) {}; // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    virtual int receiveDamageMag(int damage) {}; // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
 
     virtual int physicalDamageCalculator() {}; // Funcao que calcula o ataque fisico que sera dado
 
@@ -60,7 +65,9 @@ class Warrior : public ICharacter{
 
     Warrior (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -93,7 +100,9 @@ class Thief : public ICharacter{
 
     Thief (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -123,7 +132,9 @@ class Wizard : public ICharacter{
 
     Wizard (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -153,7 +164,9 @@ class Paladin : public ICharacter{
 
     Paladin (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -183,7 +196,9 @@ class Animal : public ICharacter{
 
     Animal (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -215,7 +230,9 @@ class Troll : public ICharacter{
 
     Troll (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -245,7 +262,9 @@ class Dragon : public ICharacter{
 
     Dragon (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
@@ -275,7 +294,9 @@ class Zombie : public ICharacter{
 
     Zombie (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
 
-    int receiveDamage(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+    int receiveDamagePhys(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
+
+    int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 

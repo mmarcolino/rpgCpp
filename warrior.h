@@ -16,7 +16,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> magic = magic;
     this -> weapons = weapons;
 
-    int maxHp = attributes[0];
+    this-> maxHp = attributes[0];
 
     magic -> initialMp(this-> maxMana);
 
@@ -39,7 +39,7 @@ int Warrior :: dodgeCalculator() //Função para calcular a esquiva
     return 0;
 }
 
-int Warrior :: receiveDamage(int damageBase) //função para calcular o dano recebido
+int Warrior :: receiveDamagePhys(int damageBase) //função para calcular o dano recebido
 {
     if (dodgeCalculator() == 1) //Função para calcular a esquiva
     return 0;
@@ -58,6 +58,27 @@ int Warrior :: receiveDamage(int damageBase) //função para calcular o dano rec
 
     return effectiveDamage;
 }
+
+int Warrior :: receiveDamageMag(int damageBase) //função para calcular o dano recebido
+{
+    if (dodgeCalculator() == 1) //Função para calcular a esquiva
+    return 0;
+
+    float damage = damageBase;
+
+    float effectiveDamage2 = damage - (damage * (  (float) (this->magicalResistance / 2)  / (100.0) )); //Absorção de dano
+
+    int effectiveDamage = effectiveDamage2;
+
+    if (effectiveDamage > this -> hp)
+    this -> hp = 0;
+
+    else 
+    this -> hp -= effectiveDamage;
+
+    return effectiveDamage;
+}
+
 
 int Warrior :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
 {
@@ -108,9 +129,9 @@ void Warrior :: initializeClass()
 int Warrior :: imprime()
 {
 
-cout<<"\n"<<this->hp<<"\n";
+cout<<"\n HP "<<this->hp<<"\n";
 
-//cout<<"\n"<<magic->mp<<"\n";
+cout<<"\n MP "<<magic->mp<<"\n";
 
 
 }
@@ -173,7 +194,7 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
     if(magic->mp > magic->manaWaste[ spellIndex[answer-1] ])
     {
 
-    if(magic->typeMagic[ spellIndex[answer-1] ] == 0){ hp += magic->magic[answer - 1]; magic->mp -= magic->manaWaste[ spellIndex[answer-1] ]; return 0; } 
+    if(magic->typeMagic[ spellIndex[answer-1] ] == 0){ hp += magic->magic[answer - 1]; magic->mp -= magic->manaWaste[ spellIndex[answer-1] ]; if(this->hp > this->maxHp){ hp = maxHp;} ; return 0; } 
 
     }
 
@@ -187,7 +208,11 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
         return damage;
     }
 
+
+    if (magic->mp < magic->manaWaste[ spellIndex[answer-1] ]){cout<<"\n-+-+ MANA INSUFICIENTE -+-+-\n"; return -2;}
     }
+
+   
     
     cout<<"\n";
 }

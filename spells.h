@@ -9,7 +9,7 @@ protected:
 int mp;
 int magic[7] = {200, 400, 360, 400, 320, 280, 200};
 int typeMagic[7] = {0, 1, 1, 0, 1, 1, 1};
-int manaWaste[7] = {24, 24, 28, 32, 28, 24, 24};
+int manaWaste[7] = {12, 12, 14, 16, 14, 12, 12};
 std::string magicName[7] = {"Pocao da Vida" , "Halito de Fogo" , "Bio" , "Cura" , "Flama Gelada", "Intoxicacao", "Tempestade"};
 
 friend class Warrior;
