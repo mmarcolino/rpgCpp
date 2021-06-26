@@ -39,6 +39,8 @@ class ICharacter{
 
     virtual int showMagicMenu() {};
 
+    virtual int addMana() {};
+
 };
 
 
@@ -72,7 +74,9 @@ class Warrior : public ICharacter{
 
     void imprime() override; // TESTE!!!!!!!!!!!!
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Warrior (); //Função destrutora
 };
@@ -101,7 +105,9 @@ class Thief : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Thief (); //Função destrutora
 };
@@ -129,7 +135,9 @@ class Wizard : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Wizard (); //Função destrutora
 };
@@ -157,7 +165,9 @@ class Paladin : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Paladin (); //Função destrutora
 };
@@ -185,7 +195,9 @@ class Animal : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     
 
@@ -215,7 +227,9 @@ class Troll : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Troll (); //Função destrutora
 };
@@ -243,7 +257,9 @@ class Dragon : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
 
     ~Dragon (); //Função destrutora
 };
@@ -271,7 +287,9 @@ class Zombie : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override;
+    int showMagicMenu() override; 
+    
+    int addMana() override;
     
     ~Zombie (); //Função destrutora
 };

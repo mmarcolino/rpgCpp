@@ -25,6 +25,7 @@ int getMagic(int index);
 int getTypeMagic(int index);
 int getManaWaste(int index);
 string getMagicName(int index);
+int manaAfterRound();
 
 //
 
@@ -97,3 +98,9 @@ int Magic :: baseMagicDamage(int choice) // DANO BASE DE MAGIA (SEM FORCA MAGICA
 
 }
 
+int Magic :: manaAfterRound()
+{
+    mp += 10;
+
+    return mp;
+}

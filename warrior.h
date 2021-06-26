@@ -171,7 +171,16 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
 
 }
 
+int Warrior :: addMana()
+{
+    int extraMana = magic->manaAfterRound();
 
+    if(extraMana > maxMana)
+    {
+        magic->mp = maxMana;
+    }
+
+}
 
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
