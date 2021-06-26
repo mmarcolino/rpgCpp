@@ -29,7 +29,7 @@ class ICharacter{
 
     virtual int magicalDamageCalculator(int escolha) {}; // Funcao que calcula o ataque magico que sera dado
 
-    virtual void changeWeapon() {}; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    virtual int changeWeapon() {}; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     virtual int dodgeCalculator() {}; //Função para calcular a esquiva do personagem
 
@@ -64,7 +64,7 @@ class Warrior : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -95,7 +95,7 @@ class Thief : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -123,7 +123,7 @@ class Wizard : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -151,7 +151,7 @@ class Paladin : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -179,7 +179,7 @@ class Animal : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -209,7 +209,7 @@ class Troll : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -237,7 +237,7 @@ class Dragon : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 
@@ -265,7 +265,7 @@ class Zombie : public ICharacter{
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
-    void changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
+    int changeWeapon() override; // Funcao encarregada por fazer o upgrade de arma do personagem, recebe o 
 
     int dodgeCalculator() override; //Função para calcular a esquiva do personagem
 

@@ -74,12 +74,24 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 
 int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o dano mágico infligido no inimigo
 {
-return escolha;    
+    int damage = magic->baseMagicDamage(escolha);
+    
+    float magicalStrengh = this-> magicalStrenght;
+
+    if (damage != -1)
+    {
+        damage *= 1 + (magicalStrengh / 100);
+
+        return damage;
+    }
+    
+    else
+    cout << "\n" << "Pontos de mana insuficientes" << "\n";
 }
 
-void Warrior :: changeWeapon() //Função para a troca de armas
+int Warrior :: changeWeapon() //Função para a troca de armas
 {
-
+    return weapons -> upgrade(weaponIndex);
 }
 
 void Warrior :: initializeClass()
