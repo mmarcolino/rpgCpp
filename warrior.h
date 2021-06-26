@@ -131,9 +131,7 @@ int Warrior :: imprime()
 
 cout<<"\n HP "<<this->hp<<"\n";
 
-cout<<"\n MP "<<magic->mp<<"\n";
-
-
+    return hp;
 }
 
 
