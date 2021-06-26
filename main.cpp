@@ -36,4 +36,6 @@ p2->receiveDamage(teste);
 
 p2->imprime();
 
+p1->showMagicMenu();
+
 }

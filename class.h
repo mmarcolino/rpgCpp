@@ -20,6 +20,7 @@ class ICharacter{
     int maxMana;
 
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
+    int spellIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     public:
 
     virtual int receiveDamage(int damage) {}; // Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele

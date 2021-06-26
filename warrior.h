@@ -21,6 +21,8 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     weaponIndex[0] = 2;
     weaponIndex[1] = 6;
 
+    spellIndex[0] = 6;
+
 }
 
 int Warrior :: dodgeCalculator() //Função para calcular a esquiva
@@ -94,6 +96,68 @@ cout<<"\n"<<this->hp<<"\n";
 
 
 }
+
+
+
+int Warrior :: showMagicMenu()
+{
+
+    cout << string( 100, '\n' );
+
+    cout<<"-+-+-+-+-+-+-+-+- SELECIONAR MAGIA -+-+-+-+-+-+-+-+-";
+
+    int counter = 0;
+
+    cout<<"\n\n";
+
+    for(int i : this->spellIndex)
+    {
+        if(i == -1){ break; }
+
+        counter++;
+
+        cout<<counter<<". "<<magic->magicName[i]<<"\n";
+        
+
+    }
+
+    int breaker = 0;
+
+    int answer = 0;
+
+    while(1){
+
+        cout<<": ";
+
+        cin>>answer;
+
+        for(int i = 0; i < counter; i++ )
+        {
+
+            if(answer == i){ breaker = 1; break;}
+
+        }
+
+        if(breaker == 1){ break; }
+
+        else{ cout<<"OPCAO INVALIDA! TENTE NOVAMENTE\n"; }
+
+    }
+
+    if(magic->typeMagic[answer - 1] == 0){ this-> hp += magic->magic[answer - 1]; } 
+
+    else if(magic->typeMagic[answer - 1] == 1)
+    {
+        magicalDamageCalculator(answer - 1);
+    }
+
+
+    cout<<"\n\n";
+
+    return answer - 1;
+
+}
+
 
 
 Warrior :: ~Warrior() //Função para destruir o personagem
