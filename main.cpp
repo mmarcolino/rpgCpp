@@ -34,10 +34,26 @@ p2->initializeClass();
 
 //p2->receiveDamage(teste);
 
+//p2->imprime();
+
+//int damage = p1->showMagicMenu();
+
+//cout<<"\n"<<damage<<"\n";
+
+//if(damage != -2){ p2->receiveDamage(damage); }
+
+
 p2->imprime();
 
-p1->showMagicMenu();
+p1->changeWeapon();
 
-p1->imprime();
+p1->changeWeapon();
+
+p2->receiveDamage(p1->physicalDamageCalculator());
+
+//p1->changeWeapon();
+
+p2->imprime();
+
 
 }

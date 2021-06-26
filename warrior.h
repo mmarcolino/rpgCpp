@@ -6,15 +6,17 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
 
     //Atributos
     this -> hp = attributes [0]; 
-    this -> physicalStrenght = attributes [1];
-    this -> magicalStrenght = attributes [2];
-    this -> armor = attributes [3];
-    this -> magicalResistance = attributes [4];
-    this -> agility = attributes [5];
-    this -> maxMana = attributes [6];
+    this -> maxMana = attributes [1];
+    this -> physicalStrenght = attributes [2];
+    this -> magicalStrenght = attributes [3];
+    this -> armor = attributes [4];
+    this -> magicalResistance = attributes [5];
+    this -> agility = attributes [6];
 
     this -> magic = magic;
     this -> weapons = weapons;
+
+    int maxHp = attributes[0];
 
     magic -> initialMp(this-> maxMana);
 
@@ -44,7 +46,7 @@ int Warrior :: receiveDamage(int damageBase) //função para calcular o dano rec
 
     float damage = damageBase;
 
-    float effectiveDamage2 = damage - (damage * (  (float) (this->armor)  / (100.0) )); //Absorção de dano
+    float effectiveDamage2 = damage - (damage * (  (float) (this->armor / 2)  / (100.0) )); //Absorção de dano
 
     int effectiveDamage = effectiveDamage2;
 
@@ -61,7 +63,7 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 {
     int damage = (rand() % 200) + 1;
 
-    cout<<"\n"<< damage << "\n";
+    cout<<this -> weapons ->  returnDamage ()<<"\n";
 
     damage += this -> weapons ->  returnDamage () - 200;
 
@@ -80,13 +82,15 @@ int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o 
 
     if (damage != -1)
     {
-        damage *= 1 + (magicalStrengh / 100);
+        damage *=  1 + (magicalStrengh / 100.0);
 
         return damage;
     }
     
     else
     cout << "\n" << "Pontos de mana insuficientes" << "\n";
+
+    return -1;
 }
 
 int Warrior :: changeWeapon() //Função para a troca de armas
@@ -106,6 +110,8 @@ void Warrior :: imprime()
 
 cout<<"\n"<<this->hp<<"\n";
 
+//cout<<"\n"<<magic->mp<<"\n";
+
 
 }
 
@@ -114,13 +120,18 @@ cout<<"\n"<<this->hp<<"\n";
 int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no main
 {
 
+    while(1){
+
     cout << string( 100, '\n' );
+
 
     cout<<"-+-+-+-+-+-+-+-+- SELECIONAR MAGIA -+-+-+-+-+-+-+-+-";
 
     int counter = 0;
 
     cout<<"\n\n";
+
+    cout<<"0. Voltar"<<"\n";
 
     for(int i : this->spellIndex)
     {
@@ -137,11 +148,14 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
 
     int answer = 0;
 
-    while(1){
 
+    while(1){
+        cout<<"\n";
         cout<<": ";
 
         cin>>answer;
+
+        if(answer == 0){ return -2;} // !!!!!!!!!!!!!! IMPORTANTE
 
         for(int i = 0; i < counter; i++ )
         {
@@ -156,19 +170,26 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
 
     }
 
-
-    if(magic->typeMagic[answer - 1] == 0){ hp += magic->magic[answer - 1]; return 0; } 
-
-    else if(magic->typeMagic[answer - 1] == 1)
+    if(magic->mp > magic->manaWaste[ spellIndex[answer-1] ])
     {
-        magicalDamageCalculator(answer - 1);
+
+    if(magic->typeMagic[ spellIndex[answer-1] ] == 0){ hp += magic->magic[answer - 1]; magic->mp -= magic->manaWaste[ spellIndex[answer-1] ]; return 0; } 
+
     }
 
+    
 
-    cout<<"\n\n";
+    int damage = 0;
 
-    return answer - 1;
+    if(magic->typeMagic[ spellIndex[answer-1] ] == 1 && magic->mp > magic->manaWaste[ spellIndex[answer-1] ] )
+    {
+        damage = magicalDamageCalculator(spellIndex[answer-1]);
+        return damage;
+    }
 
+    }
+    
+    cout<<"\n";
 }
 
 
