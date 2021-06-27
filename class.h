@@ -23,6 +23,8 @@ class ICharacter{
 
     int isPoisoned;
 
+    int isConfused;
+
     int maxHp;
 
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
@@ -69,6 +71,10 @@ class ICharacter{
     virtual void removePoison() {};
 
     virtual int getPoison() {};
+
+    virtual void removeConfusion() {};
+
+    virtual int getConfusion() {};
 
 };
 
@@ -127,6 +133,10 @@ class Warrior : public ICharacter{
 
     int getPoison() override;
 
+    void removeConfusion() override;
+
+    int getConfusion() override;
+
     int bulKathos() override;
 
     ~Warrior (); //Função destrutora
@@ -180,6 +190,11 @@ class Thief : public ICharacter{
 
     int getPoison() override;
 
+    void removeConfusion() override;
+
+    int getConfusion() override;
+
+
     int bulKathos() override;
 
     ~Thief (); //Função destrutora
@@ -231,6 +246,10 @@ class Wizard : public ICharacter{
     void removePoison() override;
 
     int getPoison() override;
+
+    void removeConfusion() override;
+
+    int getConfusion() override;
 
     int bulKathos() override;
 
@@ -284,6 +303,10 @@ class Paladin : public ICharacter{
 
     int getPoison() override;
 
+    void removeConfusion() override;
+
+    int getConfusion() override;
+
     int bulKathos() override;
 
     ~Paladin (); //Função destrutora
@@ -335,6 +358,10 @@ class Animal : public ICharacter{
     void removePoison() override;
 
     int getPoison() override;
+
+    void removeConfusion() override;
+
+    int getConfusion() override;
 
     int bulKathos() override;
 
@@ -390,6 +417,10 @@ class Troll : public ICharacter{
 
     int getPoison() override;
 
+    void removeConfusion() override;
+
+    int getConfusion() override;
+
     int bulKathos() override;
 
     ~Troll (); //Função destrutora
@@ -442,6 +473,10 @@ class Dragon : public ICharacter{
 
     int getPoison() override;
 
+    void removeConfusion() override;
+
+    int getConfusion() override;
+
     int bulKathos() override;
 
     ~Dragon (); //Função destrutora
@@ -493,6 +528,10 @@ class Zombie : public ICharacter{
     void removePoison() override;
 
     int getPoison() override;
+
+    void removeConfusion() override;
+
+    int getConfusion() override;
 
     int bulKathos() override;
     

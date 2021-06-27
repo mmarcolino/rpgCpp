@@ -1,6 +1,11 @@
 #include "warrior.h"
+#include "windows.h" 
 int main()
 {
+    int random1;
+
+    int random2;
+
     //Declaração de variáveis
     int phDamageP1, phDamageP2, mgDamageP1, mgDamageP2;
     int verifyPhAttackP1 = 0;  //Variável para conferir se o player 1 foi atacado por corpo-a-corpo
@@ -136,15 +141,18 @@ int main()
         cout << "Operacao invalida" << "\n";
         break;
     }
+
+    
     while(1)
     {
         //***********************TURNO PLAYER 1****************************************** 
 
         srand(time(0));
 
-        int random1 = (rand() % 10) + 1;
+        random1 = (rand() % 10) + 1;
 
-        if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n"; }   }
+        random2 = (rand() % 4) + 1;
+
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
@@ -164,13 +172,22 @@ int main()
             //Imprime menu
             int p1Action;
             cout << string( 100, '\n' );
+
+            if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+
             cout 
             << "\nPlayer-1, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n"
             << "\n\n\n\n\n\n\n\n\n\n:";
 
+            int chest;
+
             cin >> p1Action;
+
+            chest = p1Action;
+
+            if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ CONFUSO -+-+-+-\n\n"; p1Action = 10; if(random2 == 3){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
 
             switch (p1Action)
             {
@@ -204,6 +221,10 @@ int main()
                 p1->seeStats(p2);
                 continue;
 
+                
+            case 10:
+                break;
+
             default:
                 break;
             }
@@ -223,6 +244,11 @@ int main()
         }
         
         //************************TURNO PLAYER 2*******************************************
+
+        random1 = ((rand() % 10) + 1);
+
+        //Sleep(1000);
+
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
             int magicMenu;
@@ -242,12 +268,22 @@ int main()
             int p2Action;
             //Imprime menu
             cout << string( 100, '\n' );
+
+            if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+
             cout 
             <<"\nPlayer-2, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n\n"
             << "\n\n\n\n\n\n\n\n\n\n:";
             cin >> p2Action;
+
+            int chest2;
+
+            chest2 = p2Action;
+
+            if( p2->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ CONFUSO -+-+-+-\n\n"; p2Action = 10; if(random2 == 3){ p2->removeConfusion(); p2Action = chest2; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
+
 
             switch (p2Action)
             {
@@ -280,6 +316,10 @@ int main()
             case 4: //Status
                 p2->seeStats(p1);
                 continue;
+
+
+            case 10:
+                break;
 
 
             default:

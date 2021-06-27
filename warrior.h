@@ -17,6 +17,9 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> magic = magic;
     this -> weapons = weapons;
     this->isPoisoned = 0;
+    this->isConfused = 0;
+
+
 
     this-> maxHp = attributes[0];
 
@@ -215,7 +218,9 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
     if(magic->typeMagic[ spellIndex[answer-1] ] != 0 && magic->mp > magic->manaWaste[ spellIndex[answer-1] ] )
     {
 
-        if( magic->typeMagic[ spellIndex[answer-1] ] == 2){ random = (rand() % 5) + 1; if(random == 3){ this->isPoisoned = 1;} }
+        if( magic->typeMagic[ spellIndex[answer-1] ] == 2){ random = (rand() % 5) + 1; if(random == 3){ this->isPoisoned = 1; cout<<"\n\n-+-+-+- ENVENENADO -+-+-+-\n\n";} }
+
+         if( magic->typeMagic[ spellIndex[answer-1] ] == 3){ random = (rand() % 7) + 1; if(random == 3){ this->isConfused = 1; cout<<"\n\n-+-+-+- VOCE ESTA CONFUSO -+-+-+-\n\n";} }
 
         damage = magicalDamageCalculator(spellIndex[answer-1]);
         return damage;
@@ -391,6 +396,18 @@ void Warrior :: removePoison()
 int Warrior :: getPoison()
 {
     return this->isPoisoned;
+}
+
+void Warrior :: removeConfusion()
+{
+
+    this->isConfused = 0;
+
+}
+
+int Warrior :: getConfusion()
+{
+    return this->isConfused;
 }
 
 Warrior :: ~Warrior() //Função para destruir o personagem
