@@ -152,7 +152,7 @@ int main()
 
         srand(time(0));
 
-        random1 = (rand() % 4) + 1;
+        random1 = (rand() % 5) + 1;
 
         random2 = (rand() % 4) + 1;
 
@@ -297,7 +297,7 @@ int main()
         
         //************************TURNO PLAYER 2*******************************************
 
-        random1 = ((rand() % 10) + 1);
+        random1 = ((rand() % 5) + 1);
 
         //Sleep(1000);
 
