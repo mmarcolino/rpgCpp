@@ -70,8 +70,6 @@ class ICharacter{
 
     virtual int getPoison() {};
 
-    virtual int bulKathos() {};
-
 };
 
 
@@ -362,8 +360,6 @@ class Troll : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int receiveDamagePure(int damage) override;
-
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
@@ -415,8 +411,6 @@ class Dragon : public ICharacter{
     int receiveDamageMag(int damage) override;// Funcao que recebe como parametro o CalculaAtaque() do oponente para distribuir o dano causado por ele
 
     int receiveDamagePure(int damage) override;
-
-    int receiveDamagePure(int damage) override; 
 
     int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
 

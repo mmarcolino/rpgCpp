@@ -138,7 +138,14 @@ int main()
     }
     while(1)
     {
-        //***********************TURNO PLAYER 1******************************************  
+        //***********************TURNO PLAYER 1****************************************** 
+
+        srand(time(0));
+
+        int random1 = (rand() % 10) + 1;
+
+        if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n"; }   }
+
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
             int magicMenu;

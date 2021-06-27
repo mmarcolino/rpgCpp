@@ -380,6 +380,19 @@ int Warrior :: bulKathos()
 
     return damage;
 }
+
+void Warrior :: removePoison()
+{
+
+    this->isPoisoned = 0;
+
+}
+
+int Warrior :: getPoison()
+{
+    return this->isPoisoned;
+}
+
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
     delete magic;
