@@ -9,6 +9,11 @@ protected:
 int weapons[7] = {250, 300, 380, 400, 420, 420, 500}; 
 int weaponDamage = 0; //Dano da arma
 int weaponLevel = 0; //Nível da arma
+std::string weaponName[7] = {"Cajado" , "Garra letal" , "Porrete" , "Esfera de ataque" , "Tridente sagrado", "Besta", "Espada barroca"};
+string currentWeaponName;
+
+friend class Warrior;
+friend class ICharacter;
 
 
 public:
@@ -34,6 +39,7 @@ void Weapons :: setInicialDamage(int index)
 {
 
     this->weaponDamage = this->weapons[index];
+    this->currentWeaponName = this->weaponName[index];
 
 }
 
@@ -43,6 +49,8 @@ int Weapons :: upgrade (int weaponArray[])
     {
         weaponLevel ++;
         weaponDamage = weapons[weaponArray[weaponLevel]];
+
+        this->currentWeaponName = weaponName[weaponArray[weaponLevel]];
         
         return 1;
     }   

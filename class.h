@@ -46,6 +46,12 @@ class ICharacter{
 
     virtual int addMana() {};
 
+    virtual int returnHp() {};
+
+    virtual int returnMaxHp (){};
+
+    virtual void seeStats(ICharacter *p2) {};
+
 };
 
 
@@ -85,6 +91,12 @@ class Warrior : public ICharacter{
     
     int addMana() override;
 
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
+
     ~Warrior (); //Função destrutora
 };
 
@@ -118,6 +130,12 @@ class Thief : public ICharacter{
     
     int addMana() override;
 
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
+
     ~Thief (); //Função destrutora
 };
 
@@ -149,6 +167,12 @@ class Wizard : public ICharacter{
     int showMagicMenu() override; 
     
     int addMana() override;
+
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
 
     ~Wizard (); //Função destrutora
 };
@@ -182,6 +206,12 @@ class Paladin : public ICharacter{
     
     int addMana() override;
 
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
+
     ~Paladin (); //Função destrutora
 };
 
@@ -213,6 +243,12 @@ class Animal : public ICharacter{
     int showMagicMenu() override; 
     
     int addMana() override;
+
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
 
     
 
@@ -248,6 +284,12 @@ class Troll : public ICharacter{
     
     int addMana() override;
 
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
+
     ~Troll (); //Função destrutora
 };
 
@@ -280,6 +322,12 @@ class Dragon : public ICharacter{
     
     int addMana() override;
 
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
+
     ~Dragon (); //Função destrutora
 };
 
@@ -311,6 +359,12 @@ class Zombie : public ICharacter{
     int showMagicMenu() override; 
     
     int addMana() override;
+
+    int returnHp() override;
+
+    int returnMaxHp () override;
+
+    void seeStats(ICharacter *p2) override;
     
     ~Zombie (); //Função destrutora
 };

@@ -127,7 +127,7 @@ void Warrior :: initializeClass()
 int Warrior :: imprime()
 {
 
-cout<<"\n HP "<<this->hp<<"\n";
+//cout<<"\n HP "<<this->hp<<"\n";
 
     return hp;
 }
@@ -219,10 +219,95 @@ int Warrior :: addMana()
 
     if(extraMana > maxMana)
     {
-        magic->mp = maxMana;
+        this->magic->mp = maxMana;
     }
 
 }
+
+void Warrior :: seeStats(ICharacter *p2)
+{
+    float porcentagem = (float)(this->hp) / (float)(this->maxHp); 
+
+    float lifeDivisor = this->maxHp / 10;
+
+    porcentagem *= 100;
+
+    int counter = 1;
+
+    cout << string( 100, '\n' );
+
+    cout<<"+- STATUS PLAYER  -+";
+
+    cout << string(3, '\n');
+
+    cout<<"-HP: [";
+
+     // # # # # # # # # # # 
+    
+    cout<<"#";
+    while(1){
+
+ 
+        if(lifeDivisor >= this->hp) { break; }
+
+        else{counter++; cout<<"#"; lifeDivisor += this->maxHp / 10; }
+
+    }
+
+    for(int i = 0; i < 10 - counter; i++){ cout<<"-"; }
+
+    cout<<"] "<<(int)(porcentagem)<<"%"<<" ( "<<this->hp<<"hp ) "<<"\n\n";
+    
+    cout<<"-Mana Points: "<<this->magic->mp<<"\n\n";
+
+
+    cout<<"-Arma atual: "<<weapons->currentWeaponName<<"( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
+
+    cout<<"-----------------------------------------------------------------------------\n\n";
+
+    cout<<"HP INIMIGO:\n\n";
+
+    counter = 1;
+
+    porcentagem = (float)(p2->returnHp()) / (float)(p2->returnMaxHp()); 
+
+    lifeDivisor = p2->returnMaxHp()  / 10;
+
+    porcentagem *= 100;
+
+
+    cout<<"-HP: [";
+
+     // # # # # # # # # # # 
+    
+    cout<<"#";
+    while(1){
+
+ 
+        if(lifeDivisor >= this->hp) { break; }
+
+        else{counter++; cout<<"#"; lifeDivisor += this->maxHp / 10; }
+
+    }
+
+    for(int i = 0; i < 10 - counter; i++){ cout<<"-"; }
+
+    cout<<"] "<<"\n\n";
+
+
+
+}
+
+int Warrior :: returnHp()
+{
+    return this->hp;
+}
+
+int Warrior :: returnMaxHp()
+{
+    return this->maxHp;
+}
+
 
 Warrior :: ~Warrior() //Função para destruir o personagem
 {

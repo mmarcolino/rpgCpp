@@ -155,9 +155,9 @@ int main()
             //Imprime menu
             int p1Action;
             cout 
-            << "Player-1, escolha sua acao:"
+            << "Player-1, escolha sua acao:\n"
             << " "
-            << "1- Ataque fisico, 2- Usar magia, 3- Upgrade de arma, 4- Ataque especial."
+            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n"
             << "\n";
 
             cin >> p1Action;
@@ -179,6 +179,8 @@ int main()
                     mgDamageP1 = magicMenu;
                     verifyMgAttackP1;
                 }
+                
+                if(magicMenu == -2){continue;}
                 break;
 
             case 3: // Upar arma
@@ -187,11 +189,9 @@ int main()
                 p1->addMana(); //Função para adcionar 10 de mana em cada round. 
                 break;
 
-            case 4: //Ataque especial
-
-
-                p1->addMana(); //Função para adcionar 10 de mana em cada round. 
-                break;
+            case 4: //Status
+                p1->seeStats(p2);
+                continue;
 
             default:
                 break;
@@ -199,7 +199,15 @@ int main()
         }
         else //Caso o player 1 seja derrotado
         {
-            cout << "Player 1 derrotado!" << "\n";
+            cout << "Player 2 derrotado!" << "\n";
+
+            delete p1;
+            delete p2;
+            delete mp1;
+            delete wp1;
+            delete mp2;
+            delete wp2;
+
             break;
         }
         
@@ -223,9 +231,9 @@ int main()
             int p2Action;
             //Imprime menu
             cout 
-            << "Player-2, escolha sua acao:"
+            << "Player-2, escolha sua acao:\n"
             << " "
-            << "1- Ataque fisico, 2- Usar magia, 3- Upgrade de arma, 4- Ataque especial."
+            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n\n"
             << "\n";
             cin >> p2Action;
 
@@ -246,6 +254,9 @@ int main()
                     mgDamageP2 = magicMenu;
                     verifyMgAttackP2;
                 }
+
+                if(magicMenu == -2){continue;}
+
                 break;
 
             case 3: // Upar arma
@@ -254,11 +265,10 @@ int main()
                 p2->addMana(); //Função para adcionar 10 de mana em cada round. 
                 break;
 
-            case 4: //Ataque especial
+            case 4: //Status
+                p2->seeStats(p1);
+                continue;
 
-
-                p2->addMana(); //Função para adcionar 10 de mana em cada round. 
-                break;
 
             default:
                 break;
@@ -267,7 +277,15 @@ int main()
 
         else //Caso o player dois seja derrotado
         {
-            cout << "Player 2 derrotado!" << "\n";
+            cout << "Player 1 derrotado!" << "\n";
+            
+            delete p1;
+            delete p2;
+            delete mp1;
+            delete wp1;
+            delete mp2;
+            delete wp2;
+
             break;
         }
         

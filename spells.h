@@ -13,6 +13,7 @@ int manaWaste[7] = {12, 12, 14, 16, 14, 12, 12};
 std::string magicName[7] = {"Pocao da Vida" , "Halito de Fogo" , "Bio" , "Cura" , "Flama Gelada", "Intoxicacao", "Tempestade"};
 
 friend class Warrior;
+friend class ICharacter;
 
 public:
 Magic(); // Construtor de classe que da valor a todos os atributos acima
