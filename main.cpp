@@ -8,10 +8,12 @@ int main()
 
     //Declaração de variáveis
     int phDamageP1, phDamageP2, mgDamageP1, mgDamageP2;
-    int verifyPhAttackP1 = 0;  //Variável para conferir se o player 1 foi atacado por corpo-a-corpo
+    int verifyPhAttackP1 = 0;  //Variável para conferir se o player 2 foi atacado por corpo-a-corpo
     int verifyMgAttackP1 = 0;  //Variável para conferir se o player 1 foi atacado por magia
     int verifyPhAttackP2 = 0;  //Variável para conferir se o player 2 foi atacado corpo-a-corpo
     int verifyMgAttackP2 = 0;  //Variável para conferir se o player 1 foi atacado por magia
+    int verifyBulKathosP1 = 0; //Variável para conferir se o player 2 foi atacado com a arma especial
+    int verifyBulKathosP2 = 0; //Variável para conferir se o player 1 foi atacado com a arma especial
 
     //******************************************Declara player 1***************************************
     ICharacter *p1;
@@ -157,7 +159,7 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
-            int magicMenu;
+            int magicMenu, blessingChanceP1;
             if (verifyPhAttackP2 > 0)
             {
                 verifyPhAttackP2 = 0;
@@ -169,6 +171,9 @@ int main()
                 verifyMgAttackP2 = 0;
                 p1->receiveDamageMag(mgDamageP2);
             }
+
+            //Chance da arma especial
+            blessingChanceP1 = (rand()% 25);
 
             //Imprime menu
             int p1Action;
@@ -193,12 +198,23 @@ int main()
             switch (p1Action)
             {
             case 1: //Atacar físico
+                if (blessingChanceP1 < 5)
+                {
+                    phDamageP1 = p1 -> bulKathos();
+                    verifyBulKathosP1 ++;
+                    p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p1->addUltiPoints();
+                    break;
+                }
 
-                phDamageP1 = p1->physicalDamageCalculator();
-                verifyPhAttackP1 ++;
-                p1->addMana(); //Função para adcionar 10 de mana em cada round. 
-                p1->addUltiPoints();
-                break;
+                else
+                {
+                    phDamageP1 = p1->physicalDamageCalculator();
+                    verifyPhAttackP1 ++;
+                    p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p1->addUltiPoints();
+                    break;
+                }
 
             case 2: // usar magia
 
@@ -210,20 +226,35 @@ int main()
                 }
                 
                 if(magicMenu == -2){continue;}
+                p1->addUltiPoints();
                 break;
 
             case 3: // Upar arma
 
                 p1->changeWeapon();
-                p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                p1->addMana(); //Função para adcionar 10 de mana em cada round.
+                p1->addUltiPoints();
                 break;
 
             case 4: //Status
                 p1->seeStats(p2);
                 continue;
 
-                
+            case 5: //Ulti
+                if(p1 -> getUltiPoints() == p1 -> getMaxUltiPoints())
+                {
+                    p1 -> useUlti(p2);
+                    break;
+                }
+
+                else
+                {
+                    cout << "Ulti indisponivel";
+                    continue;
+                }
+
             case 10:
+                p1->addUltiPoints();
                 break;
 
             default:
@@ -252,7 +283,7 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
-            int magicMenu;
+            int magicMenu, blessingChanceP2;
             
             if (verifyPhAttackP1 > 0) 
             {
@@ -266,7 +297,11 @@ int main()
                 p2->receiveDamageMag(mgDamageP1);
             }
 
+            //Chance da arma especial
+            blessingChanceP2 = (rand()% 25);
+            
             int p2Action;
+
             //Imprime menu
             cout << string( 100, '\n' );
 
@@ -289,11 +324,22 @@ int main()
             switch (p2Action)
             {
             case 1: //Atacar físico
-
-                phDamageP2 = p2->physicalDamageCalculator();
-                verifyPhAttackP2 ++;
-                p2->addMana(); //Função para adcionar 10 de mana em cada round. 
-                break;
+                if (blessingChanceP2 < 5)
+                {
+                    phDamageP1 = p1 -> bulKathos();
+                    verifyBulKathosP1 ++;
+                    p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p1->addUltiPoints();
+                    break;
+                }
+                else
+                {
+                    phDamageP2 = p2->physicalDamageCalculator();
+                    verifyPhAttackP2 ++;
+                    p2->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p2->addUltiPoints();
+                    break;
+                }
 
             case 2: // usar magia
 
@@ -305,21 +351,35 @@ int main()
                 }
 
                 if(magicMenu == -2){continue;}
-
+                p2->addUltiPoints();
                 break;
 
             case 3: // Upar arma
 
                 p2->changeWeapon();
                 p2->addMana(); //Função para adcionar 10 de mana em cada round. 
+                p2->addUltiPoints();
                 break;
 
             case 4: //Status
                 p2->seeStats(p1);
                 continue;
 
+            case 5: //Ulti
+                if(p2-> getUltiPoints() == p2 -> getMaxUltiPoints())
+                {
+                    p2 -> useUlti(p1);
+                    break;
+                }
+
+                else
+                {
+                    cout << "Ulti indisponivel";
+                    continue;
+                }
 
             case 10:
+                p2->addUltiPoints();
                 break;
 
 

@@ -373,6 +373,11 @@ int Warrior :: getUltiPoints()
     return this -> ultiPoints;
 }
 
+int Warrior :: getMaxUltiPoints()
+{
+    return this -> maxUlti;
+}
+
 int Warrior :: useUlti(ICharacter *enemie)
 {
     int ultiDamage = 1000;
