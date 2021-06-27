@@ -175,7 +175,7 @@ int main()
             int magicMenu, blessingChanceP1;
 
             //Chance da arma especial
-            blessingChanceP1 = (rand()% 25 ) + 1;
+            blessingChanceP1 = (rand()% 100 ) + 1;
 
             //Imprime menu
             int p1Action;
@@ -321,7 +321,7 @@ int main()
             int magicMenu, blessingChanceP2;
 
             //Chance da arma especial
-            blessingChanceP2 = (rand()% 200) + 1;
+            blessingChanceP2 = (rand()% 100) + 1;
             
             int p2Action;
 
