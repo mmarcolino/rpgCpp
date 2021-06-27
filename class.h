@@ -18,6 +18,8 @@ class ICharacter{
     int magicalResistance; // Resistencia a dano magico
     int agility; // Probabilidade de esquiva
     int maxMana;
+    int maxUlti;
+    int ultiPoints;
 
     int maxHp;
 
@@ -43,6 +45,14 @@ class ICharacter{
     virtual int imprime() {};
 
     virtual int showMagicMenu() {};
+
+    virtual int addUltiPoints() {};
+
+    virtual int getUltiPoints() {};
+
+    virtual int useUlti(ICharacter *enemie) {};
+
+    virtual int bulKathos() {};
 
     virtual int addMana() {};
 
@@ -88,6 +98,12 @@ class Warrior : public ICharacter{
     int imprime() override; // TESTE!!!!!!!!!!!!
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -96,6 +112,7 @@ class Warrior : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Warrior (); //Função destrutora
 };
@@ -127,6 +144,12 @@ class Thief : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -135,6 +158,7 @@ class Thief : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Thief (); //Função destrutora
 };
@@ -165,6 +189,12 @@ class Wizard : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -173,6 +203,7 @@ class Wizard : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Wizard (); //Função destrutora
 };
@@ -203,6 +234,12 @@ class Paladin : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -211,6 +248,7 @@ class Paladin : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Paladin (); //Função destrutora
 };
@@ -241,6 +279,12 @@ class Animal : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -249,6 +293,7 @@ class Animal : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     
 
@@ -281,6 +326,12 @@ class Troll : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -289,6 +340,7 @@ class Troll : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Troll (); //Função destrutora
 };
@@ -319,6 +371,12 @@ class Dragon : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -327,6 +385,7 @@ class Dragon : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
 
     ~Dragon (); //Função destrutora
 };
@@ -357,6 +416,12 @@ class Zombie : public ICharacter{
     void initializeClass() override;
 
     int showMagicMenu() override; 
+
+    int addUltiPoints() override;
+
+    int getUltiPoints() override;
+
+    int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
 
@@ -365,6 +430,7 @@ class Zombie : public ICharacter{
     int returnMaxHp () override;
 
     void seeStats(ICharacter *p2) override;
+    int bulKathos() override;
     
     ~Zombie (); //Função destrutora
 };

@@ -169,6 +169,7 @@ int main()
                 phDamageP1 = p1->physicalDamageCalculator();
                 verifyPhAttackP1 ++;
                 p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                p1->addUltiPoints();
                 break;
 
             case 2: // usar magia

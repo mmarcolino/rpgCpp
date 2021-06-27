@@ -12,7 +12,8 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-
+    this -> maxUlti = 100;
+    this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
 
@@ -309,6 +310,44 @@ int Warrior :: returnMaxHp()
 }
 
 
+int Warrior :: addUltiPoints()
+{
+    if (ultiPoints < maxUlti)
+    {
+        ultiPoints += 10;
+    }
+    
+}
+
+int Warrior :: getUltiPoints()
+{
+    return this -> ultiPoints;
+}
+
+int Warrior :: useUlti(ICharacter *enemie)
+{
+    int ultiDamage = 1000;
+
+    cout << "Guerreiro ativa ""fúria"" !";
+    
+    return ultiDamage;
+}
+
+int Warrior :: bulKathos()
+{
+    int damage = 700, critical;
+    float strengh = this -> physicalStrenght;
+
+    critical = (rand () % 3);
+
+    if (critical == 3)
+    damage *= 2 + (strengh / 100);
+
+    else
+    damage *= 1 + (strengh / 100);
+
+    return damage;
+}
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
     delete magic;
