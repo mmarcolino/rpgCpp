@@ -897,7 +897,7 @@ int Paladin :: bulKathos()
     else
     damage *= 1 + (strengh / 100);
 
-    cout<<"\n\n-+-+-+- "<<damage<<" DE DANO FEITO (BUL-KHATOS: ESPADA LENDARIA) -+-+-+-\n\n";
+    cout<<"\n\n-+-+-+- "<<damage<<" DE DANO FEITO (BUL-KATHOS: ESPADA LENDARIA) -+-+-+-\n\n";
 
     sleep(3);
 
