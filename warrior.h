@@ -16,6 +16,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
+    this->isPoisoned = 0;
 
     this-> maxHp = attributes[0];
 
@@ -79,6 +80,18 @@ int Warrior :: receiveDamageMag(int damageBase) //função para calcular o dano 
 
     return effectiveDamage;
 }
+
+
+int Warrior :: receiveDamagePure(int damage)
+{
+
+    if (damage > this -> hp)
+            this -> hp = 0;
+
+    else{ this->hp -= damage;}
+
+}
+
 
 
 int Warrior :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
@@ -195,12 +208,15 @@ int Warrior :: showMagicMenu() // IF diferente de 0 executar receive damage no m
 
     }
 
-    
+    int random = 0;
 
     int damage = 0;
 
-    if(magic->typeMagic[ spellIndex[answer-1] ] == 1 && magic->mp > magic->manaWaste[ spellIndex[answer-1] ] )
+    if(magic->typeMagic[ spellIndex[answer-1] ] != 0 && magic->mp > magic->manaWaste[ spellIndex[answer-1] ] )
     {
+
+        if( magic->typeMagic[ spellIndex[answer-1] ] == 2){ random = (rand() % 5) + 1; if(random == 3){ this->isPoisoned = 1;} }
+
         damage = magicalDamageCalculator(spellIndex[answer-1]);
         return damage;
     }
@@ -295,6 +311,22 @@ void Warrior :: seeStats(ICharacter *p2)
 
     cout<<"] "<<"\n\n";
 
+    int keyPressed;
+
+    while(1)
+    {
+
+        cout<<"\n\n\n\nDIGITE 0 PARA SAIR\n\n";
+
+        cout<<"\n:";
+
+        cin>>keyPressed;
+
+        if(keyPressed == 0){ break; }
+
+
+
+    }
 
 
 }
@@ -355,3 +387,4 @@ Warrior :: ~Warrior() //Função para destruir o personagem
     
 
 };
+

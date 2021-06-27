@@ -17,12 +17,13 @@ int main()
 
     //Imprime menu
     int menuP1; //Variável para controlar o menu do player 1.
+    cout << string( 100, '\n' );
     cout 
     << "\n"
     << "Player-1, escolha sua classe:"
     << " "
     << "1- Guerreiro, 2- Ladrao, 3- Mago, 4- Paladino, 5- Animal, 6- Troll, 7- Dragao, 8- Zumbi."
-    << "\n";
+    << "\n\n\n\n\n\n\n\n\n\n";
 
     cin >> menuP1;
     switch (menuP1)
@@ -80,12 +81,13 @@ int main()
 
     //Imprime menu
     int menup2; //Variável para controlar o menu.
+    cout << string( 100, '\n' );
     cout 
     << "\n"
     << "Player-2, escolha sua classe:"
     << " "
     << "1- Guerreiro, 2- Ladrao, 3- Mago, 4- Paladino, 5- Animal, 6- Troll, 7- Dragao, 8- Zumbi."
-    << "\n";
+    << "\n\n\n\n\n\n\n\n\n\n:";
 
     cin >> menup2;
     switch (menup2)
@@ -154,11 +156,12 @@ int main()
 
             //Imprime menu
             int p1Action;
+            cout << string( 100, '\n' );
             cout 
-            << "Player-1, escolha sua acao:\n"
+            << "\nPlayer-1, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n"
-            << "\n";
+            << "\n\n\n\n\n\n\n\n\n\n:";
 
             cin >> p1Action;
 
@@ -231,11 +234,12 @@ int main()
 
             int p2Action;
             //Imprime menu
+            cout << string( 100, '\n' );
             cout 
-            << "Player-2, escolha sua acao:\n"
+            <<"\nPlayer-2, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n\n"
-            << "\n";
+            << "\n\n\n\n\n\n\n\n\n\n:";
             cin >> p2Action;
 
             switch (p2Action)
