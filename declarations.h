@@ -108,7 +108,15 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 
     cout<<"\n\n-+-+-+- "<<damage<<" DE DANO FEITO -+-+-+-\n\n";
 
-   sleep(3);
+   sleep(1);
+
+   int random = (rand() % 6) + 1;
+
+   if(random == 4)
+   {
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+
+    }
 
 
     return damage;
@@ -397,11 +405,42 @@ int Warrior :: getMaxUltiPoints()
 
 int Warrior :: useUlti(ICharacter *enemie)
 {
-    int ultiDamage = 1000;
+    int ultiDamage = 0;
 
-    cout << "Guerreiro ativa ""furia"" !";
+    cout << "\nGuerreiro ativa ""furia"" !\n\n";
 
-    enemie->receiveDamagePhys(1000);
+    sleep(2);
+
+    int random = 0;
+
+    int contador = 1;
+
+    while(1)
+    {
+
+        cout << string( 100, '\n' );
+
+        ultiDamage += 250; 
+
+        cout<<"\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"
+            <<"         COMBO "<<contador<<"x ("<<ultiDamage<<") ";
+            cout<<"\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n";
+
+        random = (rand() % 7) + 1;
+
+        if(random == 5){ break ;}
+
+        contador++;
+
+        sleep(2);
+
+    }
+
+
+
+
+
+    enemie->receiveDamagePhys(ultiDamage);
 
     sleep(3);
     
@@ -463,6 +502,24 @@ void Warrior :: addConfusion()
     this->isConfused = 1;
 }
 
+int Warrior :: removeBleed()
+{
+    this->isBleeding = 0;
+    return 0;
+}
+
+int Warrior :: getBleed()
+{
+    return this->isBleeding;
+}
+
+int Warrior :: addBleed()
+{
+    this->isBleeding = 1;
+    return 0;
+}
+
+
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
     delete magic;
@@ -476,7 +533,7 @@ Warrior :: ~Warrior() //Função para destruir o personagem
 
 Paladin :: Paladin(Magic *magic, Weapons *weapons)
 {
-    srand(time(0)); //Seed do gerador de números aleátorios
+    srand(time(0));; //Seed do gerador de números aleátorios
 
     //Atributos
     this -> hp = attributes [0]; 
@@ -938,6 +995,25 @@ void Paladin :: addConfusion()
 {
     this->isConfused = 1;
 }
+
+
+int Paladin :: removeBleed()
+{
+    this->isBleeding = 0;
+    return 0;
+}
+
+int Paladin :: getBleed()
+{
+    return this->isBleeding;
+}
+
+int Paladin :: addBleed()
+{
+    this->isBleeding = 1;
+    return 0;
+}
+
 
 Paladin :: ~Paladin() //Função para destruir o personagem
 {

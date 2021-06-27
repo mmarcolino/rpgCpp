@@ -7,6 +7,7 @@ class Weapons{
 protected:
 
 int weapons[7] = {250, 300, 380, 400, 420, 420, 500}; 
+int weaponId[7] = {0, 1, 2, 3, 4, 5, 6};
 int weaponDamage = 0; //Dano da arma
 int weaponLevel = 0; //Nível da arma
 std::string weaponName[7] = {"Cajado" , "Garra letal" , "Porrete" , "Esfera de ataque" , "Tridente sagrado", "Besta", "Espada barroca"};

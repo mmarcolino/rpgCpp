@@ -27,6 +27,8 @@ class ICharacter{
 
     int isConfused;
 
+    int isBleeding;
+
     int maxHp;
 
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
@@ -83,6 +85,13 @@ class ICharacter{
     virtual int getConfusion() {};
 
     virtual void addConfusion() {};
+    
+    virtual int getBleed() {};
+
+    virtual int addBleed() {};
+
+    virtual int removeBleed() {};
+
 
 };
 
@@ -152,6 +161,13 @@ class Warrior : public ICharacter{
     void addConfusion() override;
 
     int bulKathos() override;
+    
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
+
 
     ~Warrior (); //Função destrutora
 };
@@ -215,6 +231,12 @@ class Thief : public ICharacter{
     int getConfusion() override;
 
     void addConfusion() override;
+
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
 
 
     int bulKathos() override;
@@ -281,6 +303,12 @@ class Wizard : public ICharacter{
 
     void addConfusion() override;
 
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
+
     int bulKathos() override;
 
     ~Wizard (); //Função destrutora
@@ -345,6 +373,12 @@ class Paladin : public ICharacter{
 
     void addConfusion() override;
 
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
+
     int bulKathos() override;
 
     ~Paladin (); //Função destrutora
@@ -408,6 +442,12 @@ class Animal : public ICharacter{
     int getConfusion() override;
 
     void addConfusion() override;
+
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
 
     int bulKathos() override;
 
@@ -475,6 +515,12 @@ class Troll : public ICharacter{
 
     void addConfusion() override;
 
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
+
     int bulKathos() override;
 
     ~Troll (); //Função destrutora
@@ -539,6 +585,12 @@ class Dragon : public ICharacter{
 
     void addConfusion() override;
 
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
+
     int bulKathos() override;
 
     ~Dragon (); //Função destrutora
@@ -602,6 +654,12 @@ class Zombie : public ICharacter{
     int getConfusion() override;
 
     void addConfusion() override;
+
+    int getBleed() override;
+
+    int addBleed() override;
+
+    int removeBleed() override;
 
     int bulKathos() override;
     

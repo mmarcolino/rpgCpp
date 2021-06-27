@@ -6,6 +6,8 @@ int main()
 
     int random2;
 
+    int random3;
+
     //Declaração de variáveis
     int phDamageP1, phDamageP2, mgDamageP1, mgDamageP2;
     int verifyPhAttackP1 = 0;  //Variável para conferir se o player 2 foi atacado por corpo-a-corpo
@@ -172,6 +174,9 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
+
+            random3 = (rand() % 4 ) + 1;
+
             int magicMenu, blessingChanceP1;
 
             //Chance da arma especial
@@ -181,7 +186,9 @@ int main()
             int p1Action;
             cout << string( 100, '\n' );
 
-            if(p1->getPoison() == 1){ cout<<"OPA: "<<p1->imprime()<<"\n\n";}
+            // if(p1->getPoison() == 1){ cout<<"OPA: "<<p1->imprime()<<"\n\n";}
+
+            if( p1->getBleed() == 1){ p1->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; if(random3 == 2){ p1->removeBleed(); cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; }   }
 
             if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
         
@@ -299,6 +306,8 @@ int main()
 
         random1 = ((rand() % 5) + 1);
 
+        random3 = ((rand() % 4) + 1);
+
         //Sleep(1000);
 
             // if (verifyPhAttackP1 > 0) 
@@ -327,6 +336,8 @@ int main()
 
             //Imprime menu
             cout << string( 100, '\n' );
+
+            if( p2->getBleed() == 1){ p2->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; if(random3 == 2){ p2->removeBleed(); cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; }   }
 
             if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
         
