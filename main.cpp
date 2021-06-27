@@ -1,5 +1,4 @@
 #include "warrior.h"
-#include "windows.h" 
 int main()
 {
     int random1;
@@ -85,6 +84,7 @@ int main()
     Magic *mp2 = new Magic();
 
     //Imprime menu
+
     int menup2; //Variável para controlar o menu.
     cout << string( 100, '\n' );
     cout 

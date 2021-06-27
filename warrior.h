@@ -107,6 +107,11 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 
     damage *= 1 + (strengh / 100);
 
+    cout<<"\n\n-+-+-+- "<<damage<<" DE DANO FEITO -+-+-+-\n\n";
+
+   sleep(3);
+
+
     return damage;
 }
 
@@ -119,6 +124,13 @@ int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o 
     if (damage != -1)
     {
         damage *=  1 + (magicalStrengh / 100.0);
+
+
+
+        cout<<"\n\n-+-+-+- "<<damage<<" DE DANO FEITO -+-+-+-\n\n";
+
+        sleep(3);
+
 
         return damage;
     }

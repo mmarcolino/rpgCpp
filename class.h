@@ -3,7 +3,9 @@
 #include "weapons.h"
 #include "spells.h"
 #include <cstdlib>
+#include <unistd.h>
 #include<ctime>
+unsigned int sleep(unsigned int seconds);
 
 using namespace std;
 
