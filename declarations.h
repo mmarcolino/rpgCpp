@@ -875,7 +875,7 @@ int Paladin :: useUlti(ICharacter *enemie)
 
     cout << "\nPaladino ativa > Aposta Divina < !\n";
 
-    if(enemie->imprime() % 2 == 1){ cout<<"\n\n: SUCESSO NA APOSTA! "; enemie->receiveDamagePure( (int) (enemie->imprime() / 4)  ) ; cout<<"1/4 da vida inimiga foi ceifada\n\n"; }
+    if(enemie->imprime() % 2 == 1){ cout<<"\n\n: SUCESSO NA APOSTA! "; enemie->receiveDamagePure( (int) (enemie->imprime() / 2)  ) ; cout<<"Metade da vida inimiga foi ceifada\n\n"; }
 
     else{ cout<<"\n\n: FALHA NA APOSTA!\n\n";}
 
