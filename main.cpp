@@ -1,4 +1,5 @@
 #include "declarations.h"
+
 unsigned int sleep(unsigned int seconds);
 int main()
 {
@@ -172,7 +173,7 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
-            int magicMenu, blessingChanceP1;
+            int magicMenu, blessingChanceP1, verifyWeapon;
 
             //Chance da arma especial
             blessingChanceP1 = (rand()% 100 ) + 1;
@@ -247,10 +248,16 @@ int main()
 
             case 3: // Upar arma
 
-                p1->changeWeapon();
-                p1->addMana(); //Função para adcionar 10 de mana em cada round.
-                p1->addUltiPoints();
-                break;
+                verifyWeapon = p2->changeWeapon();
+                if (verifyWeapon == 1)
+                {
+                    p2->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p2->addUltiPoints();
+                    break;
+                }
+                
+                else
+                continue;
 
             case 4: //Status
                 p1->seeStats(p2);
@@ -318,7 +325,7 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
-            int magicMenu, blessingChanceP2;
+            int magicMenu, blessingChanceP2, verifyWeapon;
 
             //Chance da arma especial
             blessingChanceP2 = (rand()% 100) + 1;
@@ -390,11 +397,16 @@ int main()
                 break;
 
             case 3: // Upar arma
-
-                p2->changeWeapon();
-                p2->addMana(); //Função para adcionar 10 de mana em cada round. 
-                p2->addUltiPoints();
-                break;
+                verifyWeapon = p2->changeWeapon();
+                if (verifyWeapon == 1)
+                {
+                    p2->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p2->addUltiPoints();
+                    break;
+                }
+                
+                else
+                continue;
 
             case 4: //Status
                 p2->seeStats(p1);
