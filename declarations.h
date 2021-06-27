@@ -313,6 +313,7 @@ void Warrior :: seeStats(ICharacter *p2)
     
     cout<<"-Mana Points: "<<this->magic->mp<<"\n\n";
 
+    cout<<"-Ulti Points" << "(MAX-" << this->maxUlti <<"): "<<this->ultiPoints<<"\n\n";
 
     cout<<"-Arma atual: "<<weapons->currentWeaponName<<" ( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
 
@@ -841,7 +842,8 @@ void Paladin :: seeStats(ICharacter *p2)
     
     cout<<"-Mana Points: "<<this->magic->mp<<"\n\n";
 
-
+    cout<<"-Ulti Points" << "(MAX-" << this->maxUlti <<"): "<<this->ultiPoints<<"\n\n";
+    
     cout<<"-Arma atual: "<<weapons->currentWeaponName<<" ( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
 
     cout<<"-Envenenado: ";
