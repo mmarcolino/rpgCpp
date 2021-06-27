@@ -316,11 +316,16 @@ void Warrior :: seeStats(ICharacter *p2)
 
     cout<<"-Ulti Points" << "(MAX-" << this->maxUlti <<"): "<<this->ultiPoints<<"\n\n";
 
-    cout<<"-Arma atual: "<<weapons->currentWeaponName<<"( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
+    cout<<"-Arma atual: "<<weapons->currentWeaponName<<" ( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
 
     cout<<"-Envenenado: ";
 
     if(this->getPoison() == 1){cout<<"Sim\n\n"; }
+    else{ cout<<"Nao\n\n";}
+
+       cout<<"-Sangrando: ";
+
+    if(this->getBleed() == 1){cout<<"Sim\n\n"; }
     else{ cout<<"Nao\n\n";}
 
 
@@ -848,11 +853,16 @@ void Paladin :: seeStats(ICharacter *p2)
 
     cout<<"-Ulti Points" << "(MAX-" << this->maxUlti <<"): "<<this->ultiPoints<<"\n\n";
     
-    cout<<"-Arma atual: "<<weapons->currentWeaponName<<"( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
+    cout<<"-Arma atual: "<<weapons->currentWeaponName<<" ( Dano: "<<weapons->weaponDamage<<" )"<<"\n\n\n";
 
     cout<<"-Envenenado: ";
 
     if(this->getPoison() == 1){cout<<"Sim\n\n"; }
+    else{ cout<<"Nao\n\n";}
+
+    cout<<"-Sangrando: ";
+
+    if(this->getBleed() == 1){cout<<"Sim\n\n"; }
     else{ cout<<"Nao\n\n";}
 
 

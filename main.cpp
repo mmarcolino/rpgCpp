@@ -193,7 +193,7 @@ int main()
 
             if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
         
-            cout<<"OPA: "<<p1->imprime()<<"\n\n";
+            // cout<<"OPA: "<<p1->imprime()<<"\n\n";
 
         while(1){
             
@@ -219,7 +219,7 @@ int main()
 
             random2 = (rand() % 3) + 1;
 
-            if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ ? CONFUSO ? -+-+-+-\n\n"; p1Action = 10; if(random2 == 2){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
+            if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ VOCE FICOU CONFUSO E NAO CONSEGUIU COMPLETAR A ACAO -+-+-+-\n\n"; sleep(3); p1Action = 10; if(random2 == 1){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; sleep(3); }   }
 
             switch (p1Action)
             {
@@ -375,7 +375,7 @@ int main()
 
             chest2 = p2Action;
             
-            random2 = (rand() % 2) + 1;
+            random2 = (rand() % 3) + 1;
 
             if( p2->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ VOCE FICOU CONFUSO E NAO CONSEGUIU COMPLETAR A ACAO -+-+-+-\n\n"; sleep(3); p2Action = 10; if(random2 == 1){ p2->removeConfusion(); p2Action = chest2; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; sleep(3); }   }
 
