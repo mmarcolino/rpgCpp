@@ -18,6 +18,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> weapons = weapons;
     this->isPoisoned = 0;
     this->isConfused = 0;
+    this-> rounds = 0;
 
 
 
@@ -404,7 +405,7 @@ int Warrior :: getMaxUltiPoints()
     return this -> maxUlti;
 }
 
-int Warrior :: useUlti(ICharacter *enemie)
+int Warrior :: useUlti(ICharacter *enemie, int rounds)
 {
     int ultiDamage = 0;
 
@@ -520,6 +521,13 @@ int Warrior :: addBleed()
     return 0;
 }
 
+int Warrior :: countRounds()
+{
+    rounds ++;
+
+    return rounds;
+}
+
 
 Warrior :: ~Warrior() //Função para destruir o personagem
 {
@@ -548,8 +556,9 @@ Paladin :: Paladin(Magic *magic, Weapons *weapons)
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
-    this->isPoisoned = 0;
-    this->isConfused = 0;
+    this ->isPoisoned = 0;
+    this ->isConfused = 0;
+    this ->rounds = 0;
 
 
 
@@ -928,7 +937,7 @@ int Paladin :: getMaxUltiPoints()
     return this -> maxUlti;
 }
 
-int Paladin :: useUlti(ICharacter *enemie)
+int Paladin :: useUlti(ICharacter *enemie, int rounds)
 {
     int ultiDamage = 1000;
 
@@ -1014,6 +1023,13 @@ int Paladin :: addBleed()
 {
     this->isBleeding = 1;
     return 0;
+}
+
+int Paladin :: countRounds()
+{
+    rounds ++;
+
+    return rounds;    
 }
 
 

@@ -178,7 +178,7 @@ int main()
 
             random3 = (rand() % 4 ) + 1;
 
-            int magicMenu, blessingChanceP1, verifyWeapon;
+            int magicMenu, blessingChanceP1, verifyWeapon, roundsP1;
 
             //Chance da arma especial
             blessingChanceP1 = (rand()% 100 ) + 1;
@@ -279,7 +279,7 @@ int main()
             case 5: //Ulti
                 if(p1 -> getUltiPoints() == p1 -> getMaxUltiPoints())
                 {
-                    p1 -> useUlti(p2);
+                    p1 -> useUlti(p2, roundsP1);
                     break;
                 }
 
@@ -299,6 +299,7 @@ int main()
             }
             break;
         }
+            roundsP1 = p1->countRounds();
         }
         else //Caso o player 1 seja derrotado
         {
@@ -339,7 +340,7 @@ int main()
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
-            int magicMenu, blessingChanceP2, verifyWeapon;
+            int magicMenu, blessingChanceP2, verifyWeapon, roundsP2;
 
             //Chance da arma especial
             blessingChanceP2 = (rand()% 100) + 1;
@@ -437,7 +438,7 @@ int main()
             case 5: //Ulti
                 if(p2-> getUltiPoints() == p2 -> getMaxUltiPoints())
                 {
-                    p2 -> useUlti(p1);
+                    p2 -> useUlti(p1, roundsP2);
                     break;
                 }
 
@@ -458,6 +459,7 @@ int main()
             }
             break;
         }
+            roundsP2 = p2->countRounds();
         }
 
         else //Caso o player dois seja derrotado

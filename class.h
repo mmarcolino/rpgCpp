@@ -31,6 +31,8 @@ class ICharacter{
 
     int maxHp;
 
+    int rounds;
+
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     int spellIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     
@@ -62,7 +64,7 @@ class ICharacter{
 
     virtual int getUltiPoints() {};
 
-    virtual int useUlti(ICharacter *enemie) {};
+    virtual int useUlti(ICharacter *enemie, int rounds) {};
 
     virtual int bulKathos() {};
 
@@ -92,7 +94,7 @@ class ICharacter{
 
     virtual int removeBleed() {};
 
-
+    virtual int countRounds () {};
 };
 
 
@@ -138,7 +140,7 @@ class Warrior : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -167,6 +169,8 @@ class Warrior : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
 
     ~Warrior (); //Função destrutora
@@ -210,7 +214,7 @@ class Thief : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -237,6 +241,8 @@ class Thief : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
 
     int bulKathos() override;
@@ -281,7 +287,7 @@ class Wizard : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -308,6 +314,8 @@ class Wizard : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
 
@@ -351,7 +359,7 @@ class Paladin : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -378,6 +386,8 @@ class Paladin : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
 
@@ -421,7 +431,7 @@ class Animal : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -448,6 +458,8 @@ class Animal : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
 
@@ -493,7 +505,7 @@ class Troll : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -520,6 +532,8 @@ class Troll : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
 
@@ -563,7 +577,7 @@ class Dragon : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -590,6 +604,8 @@ class Dragon : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
 
@@ -633,7 +649,7 @@ class Zombie : public ICharacter{
 
     int getMaxUltiPoints() override;
 
-    int useUlti(ICharacter *enemie) override;
+    int useUlti(ICharacter *enemie, int rounds) override;
     
     int addMana() override;
 
@@ -660,6 +676,8 @@ class Zombie : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int countRounds () override;
 
     int bulKathos() override;
     
