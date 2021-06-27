@@ -200,8 +200,13 @@ int main()
             cout 
             << "\nPlayer-1, escolha sua acao:\n"
             << " "
-            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n"
-            << "\n\n\n\n\n\n\n\n\n\n:";
+            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial";
+            if (p1-> getUltiPoints() == p1 -> getMaxUltiPoints())
+            {
+                cout << "*(Ulti Disponivel)";
+            }
+            
+            cout << "\n\n\n\n\n\n\n\n\n\n:";
 
            
 
@@ -353,8 +358,13 @@ int main()
             cout 
             <<"\nPlayer-2, escolha sua acao:\n"
             << " "
-            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n\n"
-            << "\n\n\n\n\n\n\n\n\n\n:";
+            << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial";
+            if (p2-> getUltiPoints() == p2 -> getMaxUltiPoints())
+            {
+                cout << "*(Ulti Disponivel)";
+            }
+            
+            cout << "\n\n\n\n\n\n\n\n\n\n:";
             
 
 
