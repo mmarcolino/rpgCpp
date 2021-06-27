@@ -1022,8 +1022,3 @@ Paladin :: ~Paladin() //Função para destruir o personagem
     
 
 };
-
-
-
-
-
