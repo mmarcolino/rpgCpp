@@ -15,6 +15,8 @@ string currentWeaponName;
 
 friend class Warrior;
 friend class Paladin;
+friend class Thief;
+friend class Zombie;
 friend class ICharacter;
 
 
@@ -53,6 +55,10 @@ int Weapons :: upgrade (int weaponArray[])
         weaponDamage = weapons[weaponArray[weaponLevel]];
 
         this->currentWeaponName = weaponName[weaponArray[weaponLevel]];
+
+        cout<<"\nBLABLA BLA\n";
+
+        //sleep(2);
         
         return 1;
     }   

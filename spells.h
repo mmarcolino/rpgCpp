@@ -15,6 +15,8 @@ std::string magicName[7] = {"Pocao da Vida" , "Halito de Fogo" , "Bio" , "Cura" 
 
 friend class Warrior;
 friend class Paladin;
+friend class Thief;
+friend class Zombie;
 friend class ICharacter;
 
 public:

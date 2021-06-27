@@ -44,7 +44,7 @@ int main()
         break;
 
     case 2:
-        // p1 = new Thief (mp1, wp1);  //Ladrao
+        p1 = new Thief (mp1, wp1);  //Ladrao
         p1 -> initializeClass();
         break;
 
@@ -74,7 +74,7 @@ int main()
         break;
 
     case 8:
-        // p1 = new Zombie (mp1, wp1); //Zumbi
+        p1 = new Zombie (mp1, wp1); //Zumbi
         p1 -> initializeClass();
         break;
 
@@ -109,7 +109,7 @@ int main()
         break;
 
     case 2:
-        // p2 = new Thief (mp2, wp2); //Ladrao
+        p2 = new Thief (mp2, wp2); //Ladrao
         p2 -> initializeClass();
         break;
 
@@ -139,7 +139,7 @@ int main()
         break;
 
     case 8:
-        // p2 = new Zombie (mp2, wp2); //Zumbi
+        p2 = new Zombie (mp2, wp2); //Zumbi
         p2 -> initializeClass();
         break;
 
@@ -172,6 +172,19 @@ int main()
         //         p1->receiveDamageMag(mgDamageP2);
         //     }
 
+
+
+        if( menuP1 == 8)
+        {
+
+            if( p1->getNumberRound() != -1)
+            {
+
+                p1->useUlti(p2);
+
+            }
+
+        }
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
@@ -260,11 +273,11 @@ int main()
 
             case 3: // Upar arma
 
-                verifyWeapon = p2->changeWeapon();
+                verifyWeapon = p1->changeWeapon();
                 if (verifyWeapon == 1)
                 {
-                    p2->addMana(); //Função para adcionar 10 de mana em cada round. 
-                    p2->addUltiPoints();
+                    p1->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p1->addUltiPoints();
                     break;
                 }
                 
@@ -336,6 +349,19 @@ int main()
             //     cout<<"TESTE :"<<mgDamageP1<<"\n\n";
             //     p2->receiveDamageMag(mgDamageP1);
             // }
+
+
+        if( menup2 == 8)
+        {
+            if( p2->getNumberRound() != -1)
+            {
+
+                p2->useUlti(p2);
+
+            }
+        }
+
+
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {

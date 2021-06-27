@@ -29,6 +29,8 @@ class ICharacter{
 
     int isBleeding;
 
+    int numberRound;
+
     int maxHp;
 
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
@@ -91,6 +93,17 @@ class ICharacter{
     virtual int addBleed() {};
 
     virtual int removeBleed() {};
+
+    virtual int getNumberRound() {};
+
+
+
+    virtual int returnDamageEnemy() {};
+
+    virtual string returnWeaponStringEnemy() {};
+
+
+    virtual void changeEnemyWeaponLevel() {};
 
 
 };
@@ -168,6 +181,17 @@ class Warrior : public ICharacter{
 
     int removeBleed() override;
 
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+
+   void changeEnemyWeaponLevel() override;
+
+
 
     ~Warrior (); //Função destrutora
 };
@@ -237,6 +261,16 @@ class Thief : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+
+   void changeEnemyWeaponLevel() override;
 
 
     int bulKathos() override;
@@ -309,6 +343,16 @@ class Wizard : public ICharacter{
 
     int removeBleed() override;
 
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+
+   void changeEnemyWeaponLevel() override;
+
     int bulKathos() override;
 
     ~Wizard (); //Função destrutora
@@ -379,6 +423,16 @@ class Paladin : public ICharacter{
 
     int removeBleed() override;
 
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+
+   void changeEnemyWeaponLevel() override;
+
     int bulKathos() override;
 
     ~Paladin (); //Função destrutora
@@ -448,6 +502,16 @@ class Animal : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+   void changeEnemyWeaponLevel() override;
+
 
     int bulKathos() override;
 
@@ -521,6 +585,16 @@ class Troll : public ICharacter{
 
     int removeBleed() override;
 
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+   void changeEnemyWeaponLevel() override;
+
+
     int bulKathos() override;
 
     ~Troll (); //Função destrutora
@@ -591,6 +665,16 @@ class Dragon : public ICharacter{
 
     int removeBleed() override;
 
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+   void changeEnemyWeaponLevel() override;
+
+
     int bulKathos() override;
 
     ~Dragon (); //Função destrutora
@@ -660,6 +744,15 @@ class Zombie : public ICharacter{
     int addBleed() override;
 
     int removeBleed() override;
+
+    int getNumberRound() override;
+
+
+    int returnDamageEnemy() override;
+
+    string returnWeaponStringEnemy() override;
+
+    void changeEnemyWeaponLevel() override;
 
     int bulKathos() override;
     
