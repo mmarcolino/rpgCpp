@@ -52,7 +52,7 @@ class ICharacter{
 
     virtual int imprime() {};
 
-    virtual int showMagicMenu() {};
+    virtual int showMagicMenu(ICharacter *p2) {};
 
     virtual int addUltiPoints() {};
 
@@ -76,9 +76,13 @@ class ICharacter{
 
     virtual int getPoison() {};
 
+    virtual int addPoison() {};
+
     virtual void removeConfusion() {};
 
     virtual int getConfusion() {};
+
+    virtual void addConfusion() {};
 
 };
 
@@ -117,7 +121,7 @@ class Warrior : public ICharacter{
 
     int imprime() override; // TESTE!!!!!!!!!!!!
 
-    int showMagicMenu() override; 
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -139,9 +143,13 @@ class Warrior : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -176,7 +184,9 @@ class Thief : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -198,9 +208,13 @@ class Thief : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
 
     int bulKathos() override;
@@ -235,7 +249,9 @@ class Wizard : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -257,9 +273,13 @@ class Wizard : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -293,7 +313,9 @@ class Paladin : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -315,9 +337,13 @@ class Paladin : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -351,7 +377,9 @@ class Animal : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -373,9 +401,13 @@ class Animal : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -411,7 +443,9 @@ class Troll : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -433,9 +467,13 @@ class Troll : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -469,7 +507,9 @@ class Dragon : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -491,9 +531,13 @@ class Dragon : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
 
@@ -527,7 +571,9 @@ class Zombie : public ICharacter{
 
     void initializeClass() override;
 
-    int showMagicMenu() override; 
+    int imprime() override; // TESTE!!!!!!!!!!!!
+
+    int showMagicMenu(ICharacter *p2) override; 
 
     int addUltiPoints() override;
 
@@ -549,9 +595,13 @@ class Zombie : public ICharacter{
 
     int getPoison() override;
 
+    int addPoison() override;
+
     void removeConfusion() override;
 
     int getConfusion() override;
+
+    void addConfusion() override;
 
     int bulKathos() override;
     

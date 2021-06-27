@@ -13,6 +13,7 @@ std::string weaponName[7] = {"Cajado" , "Garra letal" , "Porrete" , "Esfera de a
 string currentWeaponName;
 
 friend class Warrior;
+friend class Paladin;
 friend class ICharacter;
 
 

@@ -1,4 +1,4 @@
-#include "warrior.h"
+#include "declarations.h"
 unsigned int sleep(unsigned int seconds);
 int main()
 {
@@ -116,7 +116,7 @@ int main()
         break;
     
     case 4:
-        // p2 = new Paladin (mp2, wp2); //Paladino
+        p2 = new Paladin (mp2, wp2); //Paladino
         p2 -> initializeClass();
         break;
     
@@ -152,48 +152,61 @@ int main()
 
         srand(time(0));
 
-        random1 = (rand() % 10) + 1;
+        random1 = (rand() % 4) + 1;
 
         random2 = (rand() % 4) + 1;
+
+        //  if (verifyPhAttackP2 > 0)
+        //     {
+        //         verifyPhAttackP2 = 0;
+        //         p1->receiveDamagePhys(phDamageP2);
+        //     }
+            
+        //     if (verifyMgAttackP2 > 0)
+        //     {
+        //         verifyMgAttackP2 = 0;
+        //         cout<<"TESTE :"<<mgDamageP2<<"\n\n";
+        //         p1->receiveDamageMag(mgDamageP2);
+        //     }
 
 
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
             int magicMenu, blessingChanceP1;
-            if (verifyPhAttackP2 > 0)
-            {
-                verifyPhAttackP2 = 0;
-                p1->receiveDamagePhys(phDamageP2);
-            }
-            
-            if (verifyMgAttackP2 > 0)
-            {
-                verifyMgAttackP2 = 0;
-                p1->receiveDamageMag(mgDamageP2);
-            }
 
             //Chance da arma especial
-            blessingChanceP1 = (rand()% 25);
+            blessingChanceP1 = (rand()% 25 ) + 1;
 
             //Imprime menu
             int p1Action;
             cout << string( 100, '\n' );
 
-            if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+            if(p1->getPoison() == 1){ cout<<"OPA: "<<p1->imprime()<<"\n\n";}
 
+            if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+        
+            cout<<"OPA: "<<p1->imprime()<<"\n\n";
+
+        while(1){
+            
             cout 
             << "\nPlayer-1, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n"
             << "\n\n\n\n\n\n\n\n\n\n:";
 
+           
+
+            
             int chest;
 
             cin >> p1Action;
 
             chest = p1Action;
 
-            if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ CONFUSO -+-+-+-\n\n"; p1Action = 10; if(random2 == 3){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
+            random2 = (rand() % 3) + 1;
+
+            if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ ? CONFUSO ? -+-+-+-\n\n"; p1Action = 10; if(random2 == 2){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
 
             switch (p1Action)
             {
@@ -201,6 +214,7 @@ int main()
                 if (blessingChanceP1 < 5)
                 {
                     phDamageP1 = p1 -> bulKathos();
+                    p2->receiveDamagePhys(phDamageP1);
                     verifyBulKathosP1 ++;
                     p1->addMana(); //Função para adcionar 10 de mana em cada round. 
                     p1->addUltiPoints();
@@ -211,6 +225,7 @@ int main()
                 {
                     phDamageP1 = p1->physicalDamageCalculator();
                     verifyPhAttackP1 ++;
+                    p2->receiveDamagePhys(phDamageP1);
                     p1->addMana(); //Função para adcionar 10 de mana em cada round. 
                     p1->addUltiPoints();
                     break;
@@ -218,11 +233,12 @@ int main()
 
             case 2: // usar magia
 
-                magicMenu = p1->showMagicMenu();
+                magicMenu = p1->showMagicMenu(p2);
                 if (magicMenu > 0)
                 {
                     mgDamageP1 = magicMenu;
                     verifyMgAttackP1;
+                    p2->receiveDamageMag(magicMenu);
                 }
                 
                 if(magicMenu == -2){continue;}
@@ -238,6 +254,7 @@ int main()
 
             case 4: //Status
                 p1->seeStats(p2);
+                cout << string( 100, '\n' );
                 continue;
 
             case 5: //Ulti
@@ -249,7 +266,8 @@ int main()
 
                 else
                 {
-                    cout << "Ulti indisponivel";
+                    cout << "-+-+-+- Ulti indisponivel -+-+-+-";
+                       sleep(3);
                     continue;
                 }
 
@@ -260,10 +278,12 @@ int main()
             default:
                 break;
             }
+            break;
+        }
         }
         else //Caso o player 1 seja derrotado
         {
-            cout << "Player 2 derrotado!" << "\n";
+            cout << "Player 1 derrotado!" << "\n";
 
             delete p1;
             delete p2;
@@ -281,61 +301,72 @@ int main()
 
         //Sleep(1000);
 
+            // if (verifyPhAttackP1 > 0) 
+            // {
+            //     verifyPhAttackP1 = 0;
+            //     p2->receiveDamagePhys(phDamageP1);
+            // }
+
+            // cout<<"EU TO MALUCO  "<<verifyMgAttackP1<<"\n";
+
+            // if (verifyMgAttackP1 > 0)
+            // {
+            //     verifyMgAttackP1 = 0;
+            //     cout<<"TESTE :"<<mgDamageP1<<"\n\n";
+            //     p2->receiveDamageMag(mgDamageP1);
+            // }
+
         if (p1 -> imprime() > 0 && p2 -> imprime() > 0)
         {
             int magicMenu, blessingChanceP2;
-            
-            if (verifyPhAttackP1 > 0) 
-            {
-                verifyPhAttackP1 = 0;
-                p2->receiveDamagePhys(phDamageP1);
-            }
-
-            if (verifyMgAttackP1 > 0)
-            {
-                verifyMgAttackP1 = 0;
-                p2->receiveDamageMag(mgDamageP1);
-            }
 
             //Chance da arma especial
-            blessingChanceP2 = (rand()% 25);
+            blessingChanceP2 = (rand()% 200) + 1;
             
             int p2Action;
 
             //Imprime menu
             cout << string( 100, '\n' );
 
-            if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 7){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
-
+            if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+        
+        while(1){
+            
             cout 
             <<"\nPlayer-2, escolha sua acao:\n"
             << " "
             << "\n1- Ataque fisico\n2- Usar magia\n3- Upgrade de arma\n4- Status\n5- Ataque especial\n\n"
             << "\n\n\n\n\n\n\n\n\n\n:";
+            
+
+
             cin >> p2Action;
 
             int chest2;
 
             chest2 = p2Action;
+            
+            random2 = (rand() % 2) + 1;
 
-            if( p2->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ CONFUSO -+-+-+-\n\n"; p2Action = 10; if(random2 == 3){ p2->removeConfusion(); p2Action = chest2; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; }   }
-
+            if( p2->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ VOCE FICOU CONFUSO E NAO CONSEGUIU COMPLETAR A ACAO -+-+-+-\n\n"; sleep(3); p2Action = 10; if(random2 == 1){ p2->removeConfusion(); p2Action = chest2; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; sleep(3); }   }
 
             switch (p2Action)
             {
             case 1: //Atacar físico
                 if (blessingChanceP2 < 5)
                 {
-                    phDamageP1 = p1 -> bulKathos();
+                    phDamageP1 = p2 -> bulKathos();
                     verifyBulKathosP1 ++;
-                    p1->addMana(); //Função para adcionar 10 de mana em cada round. 
-                    p1->addUltiPoints();
+                    p1->receiveDamagePhys(phDamageP1);
+                    p2->addMana(); //Função para adcionar 10 de mana em cada round. 
+                    p2->addUltiPoints();
                     break;
                 }
                 else
                 {
-                    phDamageP2 = p2->physicalDamageCalculator();
+                    phDamageP1 = p2->physicalDamageCalculator();
                     verifyPhAttackP2 ++;
+                    p1->receiveDamagePhys(phDamageP1);
                     p2->addMana(); //Função para adcionar 10 de mana em cada round. 
                     p2->addUltiPoints();
                     break;
@@ -343,10 +374,14 @@ int main()
 
             case 2: // usar magia
 
-                magicMenu = p2->showMagicMenu();
+                magicMenu = p2->showMagicMenu(p1);
                 if (magicMenu > 0)
                 {
                     mgDamageP2 = magicMenu;
+
+                    p1->receiveDamageMag(mgDamageP2);
+
+                    //cout<<"TESTE :"<<mgDamageP2<<"\n\n";
                     verifyMgAttackP2;
                 }
 
@@ -363,6 +398,7 @@ int main()
 
             case 4: //Status
                 p2->seeStats(p1);
+                cout << string( 100, '\n' );
                 continue;
 
             case 5: //Ulti
@@ -374,7 +410,8 @@ int main()
 
                 else
                 {
-                    cout << "Ulti indisponivel";
+                    cout << "-+-+-+- Ulti indisponivel -+-+-+-";
+                       sleep(3);
                     continue;
                 }
 
@@ -386,11 +423,13 @@ int main()
             default:
                 break;
             }
+            break;
+        }
         }
 
         else //Caso o player dois seja derrotado
         {
-            cout << "Player 1 derrotado!" << "\n";
+            cout << "Player 2 derrotado!" << "\n";
             
             delete p1;
             delete p2;
