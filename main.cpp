@@ -1,4 +1,5 @@
 #include "warrior.h"
+unsigned int sleep(unsigned int seconds);
 int main()
 {
     int random1;
