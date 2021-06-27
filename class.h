@@ -56,6 +56,8 @@ class ICharacter{
 
     virtual int addUltiPoints() {};
 
+    virtual int getMaxUltiPoints() {};
+
     virtual int getUltiPoints() {};
 
     virtual int useUlti(ICharacter *enemie) {};
@@ -121,6 +123,8 @@ class Warrior : public ICharacter{
 
     int getUltiPoints() override;
 
+    int getMaxUltiPoints() override;
+
     int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
@@ -177,6 +181,8 @@ class Thief : public ICharacter{
     int addUltiPoints() override;
 
     int getUltiPoints() override;
+
+    int getMaxUltiPoints() override;
 
     int useUlti(ICharacter *enemie) override;
     
@@ -235,6 +241,8 @@ class Wizard : public ICharacter{
 
     int getUltiPoints() override;
 
+    int getMaxUltiPoints() override;
+
     int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
@@ -291,6 +299,8 @@ class Paladin : public ICharacter{
 
     int getUltiPoints() override;
 
+    int getMaxUltiPoints() override;
+
     int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
@@ -346,6 +356,8 @@ class Animal : public ICharacter{
     int addUltiPoints() override;
 
     int getUltiPoints() override;
+
+    int getMaxUltiPoints() override;
 
     int useUlti(ICharacter *enemie) override;
     
@@ -405,6 +417,8 @@ class Troll : public ICharacter{
 
     int getUltiPoints() override;
 
+    int getMaxUltiPoints() override;
+
     int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
@@ -461,6 +475,8 @@ class Dragon : public ICharacter{
 
     int getUltiPoints() override;
 
+    int getMaxUltiPoints() override;
+
     int useUlti(ICharacter *enemie) override;
     
     int addMana() override;
@@ -516,6 +532,8 @@ class Zombie : public ICharacter{
     int addUltiPoints() override;
 
     int getUltiPoints() override;
+
+    int getMaxUltiPoints() override;
 
     int useUlti(ICharacter *enemie) override;
     
