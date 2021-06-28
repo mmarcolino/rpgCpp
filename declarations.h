@@ -1340,7 +1340,6 @@ int Thief :: showMagicMenu(ICharacter *p2) // IF diferente de 0 executar receive
             if(answer - 1 == i){ breaker = 1; break;}
 
         }
-
         if(breaker == 1){ break; }
 
         else{ cout<<"OPCAO INVALIDA! TENTE NOVAMENTE\n"; }

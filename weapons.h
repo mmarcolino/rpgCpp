@@ -17,7 +17,11 @@ friend class Warrior;
 friend class Paladin;
 friend class Thief;
 friend class Zombie;
+friend class Animal;
+friend class Troll;
+friend class Dragon;
 friend class ICharacter;
+friend class Wizard;
 
 
 public:
