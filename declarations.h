@@ -18,6 +18,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> weapons = weapons;
     this->isPoisoned = 0;
     this->isConfused = 0;
+    this-> rounds = 0;
 
     this->numberRound = -1;
 
@@ -583,8 +584,9 @@ Paladin :: Paladin(Magic *magic, Weapons *weapons)
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
-    this->isPoisoned = 0;
-    this->isConfused = 0;
+    this ->isPoisoned = 0;
+    this ->isConfused = 0;
+    this ->rounds = 0;
 
     this->numberRound = -1;
 

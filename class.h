@@ -33,6 +33,8 @@ class ICharacter{
 
     int maxHp;
 
+    int rounds;
+
     int weaponIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     int spellIndex[7] = {-1, -1, -1, -1, -1, -1, -1};
     
