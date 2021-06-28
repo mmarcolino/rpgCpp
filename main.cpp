@@ -49,28 +49,28 @@ int main()
         break;
 
     case 3:
-        //p1 = new Wizard (mp1, wp1); //Mago
+        // p1 = new Wizard (mp1, wp1); //Mago
         // p1 -> initializeClass();
         break;
     
     case 4:
-        // p1 = new Paladin (mp1, wp1); //Paladino
+        p1 = new Paladin (mp1, wp1); //Paladino
         p1 -> initializeClass();
         break;
     
     case 5:
-        // p1 = new Animal(mp1, wp1); //Animal
+        p1 = new Animal(mp1, wp1); //Animal
         p1 -> initializeClass();
         break;
 
     case 6:
-        //p1 = new Troll (mp1, wp1); //Troll
+        // p1 = new Troll (mp1, wp1); //Troll
         // p1 -> initializeClass();
         break;
 
     case 7:
         // p1 = new Dragon (mp1, wp1); //Dragão
-        p1 -> initializeClass();
+        // p1 -> initializeClass();
         break;
 
     case 8:
@@ -114,7 +114,7 @@ int main()
         break;
 
     case 3:
-        //p2 = new Wizard (mp2, wp2); //Mago
+        // p2 = new Wizard (mp2, wp2); //Mago
         // p2 -> initializeClass();
         break;
     
@@ -124,18 +124,18 @@ int main()
         break;
     
     case 5:
-        // p2 = new Animal(mp2, wp2); //Animal
+        p2 = new Animal(mp2, wp2); //Animal
         p2 -> initializeClass();
         break;
 
     case 6:
-        //p2 = new Troll (mp2, wp2); //Troll
+        // p2 = new Troll (mp2, wp2); //Troll
         // p2 -> initializeClass();
         break;
 
     case 7:
         // p2 = new Dragon (mp2, wp2); //Dragao
-        p2 -> initializeClass();
+        // p2 -> initializeClass();
         break;
 
     case 8:
