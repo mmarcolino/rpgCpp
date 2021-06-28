@@ -46,7 +46,7 @@ class ICharacter{
 
     virtual int receiveDamagePure(int damage) {};
 
-    virtual int physicalDamageCalculator() {}; // Funcao que calcula o ataque fisico que sera dado
+    virtual int physicalDamageCalculator(ICharacter *enemie) {}; // Funcao que calcula o ataque fisico que sera dado
 
     virtual int magicalDamageCalculator(int escolha) {}; // Funcao que calcula o ataque magico que sera dado
 
@@ -117,10 +117,12 @@ class Warrior : public ICharacter{
     
     private:
 
-    int attributes [7] = {4000, 30, 100, 20, 80, 20, 20};
+    int attributes [7] = {4000, 30, 70, 20, 80, 20, 20};
 
     Magic *magic; 
     Weapons *weapons;
+
+    string classname;
 
 
     public:
@@ -133,7 +135,7 @@ class Warrior : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -202,9 +204,11 @@ class Thief : public ICharacter{
 
     private:
 
-    int attributes [7] = {2800, 50, 50, 30, 40, 50, 80};
+    int attributes [7] = {2800, 50, 50, 30, 40, 50, 60};
     Magic *magic; 
     Weapons *weapons;
+
+    string classname;
     
     public:
 
@@ -216,7 +220,7 @@ class Thief : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -287,6 +291,8 @@ class Wizard : public ICharacter{
     Magic *magic; 
     Weapons *weapons;
 
+    string classname;
+
     public:
 
     Wizard (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
@@ -297,7 +303,7 @@ class Wizard : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -367,6 +373,8 @@ class Paladin : public ICharacter{
     Magic *magic; 
     Weapons *weapons;
 
+    string classname;
+
     public:
 
     Paladin (Magic *magic, Weapons *weapons);// Construtor de classe que da valor a todos os atributos acima
@@ -377,7 +385,7 @@ class Paladin : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -443,9 +451,12 @@ class Paladin : public ICharacter{
 class Animal : public ICharacter{
     private:
 
-    int attributes [7] = {3200, 30, 80, 20, 80, 20, 50};
+    int attributes [7] = {3200, 30, 70, 20, 80, 20, 50};
     Magic *magic; 
     Weapons *weapons;
+
+
+    string classname;
 
     public:
 
@@ -457,7 +468,7 @@ class Animal : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -525,9 +536,11 @@ class Animal : public ICharacter{
 class Troll : public ICharacter{
     private:
 
-    int attributes [7] = {2800, 20, 100, 20, 80, 20, 20};
+    int attributes [7] = {2800, 20, 80, 20, 80, 20, 20};
     Magic *magic; 
     Weapons *weapons;
+
+    string classname;
 
     public:
 
@@ -539,7 +552,7 @@ class Troll : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -605,9 +618,11 @@ class Troll : public ICharacter{
 class Dragon : public ICharacter{
     private:
 
-    int attributes [7] = {3000, 40, 100, 20, 50, 50, 30};
+    int attributes [7] = {3000, 40, 80, 20, 50, 50, 30};
     Magic *magic; 
     Weapons *weapons;
+
+    string classname;
 
     public:
 
@@ -619,7 +634,7 @@ class Dragon : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 
@@ -685,9 +700,11 @@ class Dragon : public ICharacter{
 class Zombie : public ICharacter{
     private:
 
-    int attributes [7] = {2500, 20, 40, 20, 40, 80, 50};
+    int attributes [7] = {3500, 30, 50, 30, 60, 80, 60};
     Magic *magic; 
     Weapons *weapons;
+
+    string classname;
 
     public:
 
@@ -699,7 +716,7 @@ class Zombie : public ICharacter{
 
     int receiveDamagePure(int damage) override;
 
-    int physicalDamageCalculator() override; // Funcao que calcula o ataque fisico que sera dado
+    int physicalDamageCalculator(ICharacter *enemie) override; // Funcao que calcula o ataque fisico que sera dado
 
     int magicalDamageCalculator(int escolha) override; // Funcao que calcula o ataque magico que sera dado
 

@@ -60,12 +60,14 @@ int Weapons :: upgrade (int weaponArray[])
 
         this->currentWeaponName = weaponName[weaponArray[weaponLevel]];
 
-        cout<<"\nBLABLA BLA\n";
+        cout<<"\n-+-+-+- NOVA ARMA: "<<this->currentWeaponName<<" ( "<<this->weaponDamage<<" dano ) -+-+-+-\n";
 
         //sleep(2);
         
         return 1;
     }   
+
+    cout<<"\n-+-+-+- VOCE JA POSSUI A ARMA MAIS AVANCADA +-+-+-\n";
 
     return 0;
 }

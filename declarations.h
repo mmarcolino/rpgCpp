@@ -12,7 +12,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 100;
+    this -> maxUlti = 70;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
@@ -22,7 +22,7 @@ Warrior :: Warrior(Magic *magic, Weapons *weapons)
 
     this->numberRound = -1;
 
-
+    this->classname = "Guerreiro";
 
     this-> maxHp = attributes[0];
 
@@ -99,7 +99,7 @@ int Warrior :: receiveDamagePure(int damage)
 
 
 
-int Warrior :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Warrior :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -117,7 +117,7 @@ int Warrior :: physicalDamageCalculator () //Função para calcular o dano físi
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -153,7 +153,11 @@ int Warrior :: magicalDamageCalculator (int escolha) //Função para calcular o 
 
 int Warrior :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Warrior :: initializeClass()
@@ -292,7 +296,7 @@ void Warrior :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -451,7 +455,11 @@ int Warrior :: useUlti(ICharacter *enemie)
 
     enemie->receiveDamagePhys(ultiDamage);
 
+    cout<<"\n\n-+-+-+- "<<ultiDamage<<" DE DANO FEITO -+-+-+-\n\n";
+
     sleep(3);
+
+    this->ultiPoints = 0;
     
     return ultiDamage;
 }
@@ -580,13 +588,15 @@ Paladin :: Paladin(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 100;
+    this -> maxUlti = 80;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this ->isPoisoned = 0;
     this ->isConfused = 0;
     this ->rounds = 0;
+
+    this->classname = "Paladino";
 
     this->numberRound = -1;
 
@@ -670,7 +680,7 @@ int Paladin :: receiveDamagePure(int damage)
 
 
 
-int Paladin :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Paladin :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -688,7 +698,7 @@ int Paladin :: physicalDamageCalculator () //Função para calcular o dano físi
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -724,7 +734,11 @@ int Paladin :: magicalDamageCalculator (int escolha) //Função para calcular o 
 
 int Paladin :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Paladin :: initializeClass()
@@ -861,7 +875,7 @@ void Paladin :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -992,6 +1006,8 @@ int Paladin :: useUlti(ICharacter *enemie)
     else{ cout<<"\n\n: FALHA NA APOSTA!\n\n";}
 
     sleep(3);
+
+    this->ultiPoints = 0;
     
     return 0;
 }
@@ -1130,12 +1146,14 @@ Thief :: Thief(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 40;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this->isPoisoned = 0;
     this->isConfused = 0;
+
+    this->classname = "Ladrao";
 
     this->numberRound = -1;
 
@@ -1220,7 +1238,7 @@ int Thief :: receiveDamagePure(int damage)
 
 
 
-int Thief :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Thief :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -1238,7 +1256,7 @@ int Thief :: physicalDamageCalculator () //Função para calcular o dano físico
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -1274,7 +1292,11 @@ int Thief :: magicalDamageCalculator (int escolha) //Função para calcular o da
 
 int Thief :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Thief :: initializeClass()
@@ -1410,7 +1432,7 @@ void Thief :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -1546,6 +1568,8 @@ int Thief :: useUlti(ICharacter *enemie)
 
     cout<<"\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n";
 
+    this->ultiPoints = 0;
+
     sleep(3);
 
 }
@@ -1677,12 +1701,14 @@ Zombie :: Zombie(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 40;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this->isPoisoned = 0;
     this->isConfused = 0;
+
+    this->classname = "Zumbi";
 
     this->numberRound = -1;
 
@@ -1763,7 +1789,7 @@ int Zombie :: receiveDamagePure(int damage)
 
 
 
-int Zombie :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Zombie :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -1781,7 +1807,7 @@ int Zombie :: physicalDamageCalculator () //Função para calcular o dano físic
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -1817,7 +1843,11 @@ int Zombie :: magicalDamageCalculator (int escolha) //Função para calcular o d
 
 int Zombie :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Zombie :: initializeClass()
@@ -1954,7 +1984,7 @@ void Zombie :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -2080,7 +2110,7 @@ int Zombie :: useUlti(ICharacter *enemie)
     if( this->numberRound == -1){ 
         
         
-            this->numberRound = 0;             
+            this->numberRound = 0;   this->ultiPoints = 0;          
     
     
             cout<<"\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"
@@ -2119,8 +2149,6 @@ int Zombie :: useUlti(ICharacter *enemie)
     
     
     }
-
-
 
 
 }
@@ -2251,13 +2279,15 @@ Animal :: Animal(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 70;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this ->isPoisoned = 0;
     this ->isConfused = 0;
     this ->rounds = 0;
+
+    this->classname = "Animal";
 
 
 
@@ -2335,7 +2365,7 @@ int Animal :: receiveDamagePure(int damage)
 
 
 
-int Animal :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Animal :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -2353,7 +2383,7 @@ int Animal :: physicalDamageCalculator () //Função para calcular o dano físic
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -2389,7 +2419,11 @@ int Animal :: magicalDamageCalculator (int escolha) //Função para calcular o d
 
 int Animal :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Animal :: initializeClass()
@@ -2526,7 +2560,7 @@ void Animal :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -2658,6 +2692,8 @@ int Animal :: useUlti(ICharacter *enemie)
     spellIndex[2] = 3;
 
     sleep(3);
+
+    this->ultiPoints = 0;
     
     return 0;
 }
@@ -2797,13 +2833,15 @@ Dragon :: Dragon(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 70;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this ->isPoisoned = 0;
     this ->isConfused = 0;
     this ->rounds = 0;
+
+    this->classname = "Dragao";
 
 
 
@@ -2881,7 +2919,7 @@ int Dragon :: receiveDamagePure(int damage)
 
 
 
-int Dragon :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Dragon :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
     int damage = (rand() % 200) + 1;
 
@@ -2899,7 +2937,7 @@ int Dragon :: physicalDamageCalculator () //Função para calcular o dano físic
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -2935,7 +2973,11 @@ int Dragon :: magicalDamageCalculator (int escolha) //Função para calcular o d
 
 int Dragon :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Dragon :: initializeClass()
@@ -3072,7 +3114,7 @@ void Dragon :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -3208,6 +3250,8 @@ int Dragon :: useUlti(ICharacter *enemie)
     enemie->addConfusion();
 
     sleep(3);
+
+    this->ultiPoints = 0;
     
     return 0;
 }
@@ -3340,13 +3384,15 @@ Wizard :: Wizard(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 60;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this ->isPoisoned = 0;
     this ->isConfused = 0;
     this ->rounds = 0;
+
+    this->classname = "Mago";
 
 
 
@@ -3429,7 +3475,7 @@ int Wizard :: receiveDamagePure(int damage)
 
 
 
-int Wizard :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Wizard :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
         int damage = (rand() % 200) + 1;
 
@@ -3447,7 +3493,7 @@ int Wizard :: physicalDamageCalculator () //Função para calcular o dano físic
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -3483,7 +3529,11 @@ int Wizard :: magicalDamageCalculator (int escolha) //Função para calcular o d
 
 int Wizard :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Wizard :: initializeClass()
@@ -3620,7 +3670,7 @@ void Wizard :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -3814,6 +3864,8 @@ int Wizard :: useUlti(ICharacter *enemie)
     enemie->receiveDamagePhys(ultiDamage);
 
     sleep(3);
+
+    this->ultiPoints = 0;
     
     return ultiDamage;
 }
@@ -3947,13 +3999,15 @@ Troll :: Troll(Magic *magic, Weapons *weapons)
     this -> armor = attributes [4];
     this -> magicalResistance = attributes [5];
     this -> agility = attributes [6];
-    this -> maxUlti = 20;
+    this -> maxUlti = 50;
     this -> ultiPoints = 0;
     this -> magic = magic;
     this -> weapons = weapons;
     this ->isPoisoned = 0;
     this ->isConfused = 0;
     this ->rounds = 0;
+
+    this->classname = "Troll";
 
 
 
@@ -4032,7 +4086,7 @@ int Troll :: receiveDamagePure(int damage)
 
 
 
-int Troll :: physicalDamageCalculator () //Função para calcular o dano físico infligido no inimigo
+int Troll :: physicalDamageCalculator (ICharacter *enemie) //Função para calcular o dano físico infligido no inimigo
 {
         int damage = (rand() % 200) + 1;
 
@@ -4050,7 +4104,7 @@ int Troll :: physicalDamageCalculator () //Função para calcular o dano físico
 
    if(random == 4)
    {
-       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; this->addBleed();   }
+       if (this->weaponIndex[ this->weapons->weaponLevel ] == 1 || this->weaponIndex[ this->weapons->weaponLevel ] == 5  ){  cout<<"\n\n-+-+-+- SANGRAMENTO -+-+-+-\n\n"; enemie->addBleed();   }
 
     }
 
@@ -4086,7 +4140,11 @@ int Troll :: magicalDamageCalculator (int escolha) //Função para calcular o da
 
 int Troll :: changeWeapon() //Função para a troca de armas
 {
-    return weapons -> upgrade(weaponIndex);
+    int a = weapons -> upgrade(weaponIndex);
+
+    sleep(2);
+
+    return a;
 }
 
 void Troll :: initializeClass()
@@ -4223,7 +4281,7 @@ void Troll :: seeStats(ICharacter *p2)
 
     cout << string( 100, '\n' );
 
-    cout<<"+- STATUS PLAYER  -+";
+    cout<<"+- STATUS PLAYER ( "<<this->classname<<" ) -+";
 
     cout << string(3, '\n');
 
@@ -4346,6 +4404,7 @@ int Troll :: getMaxUltiPoints()
 int Troll :: useUlti(ICharacter *enemie)
 {
     int ultDamage = 800;
+
     cout<<"\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n";
 
     cout << "\nTroll ativa > Mordida Mortal < !\n";
@@ -4357,11 +4416,13 @@ int Troll :: useUlti(ICharacter *enemie)
 
     enemie->addPoison();
 
-    enemie->addConfusion();
-
     sleep(3);
-    
+
+    this->ultiPoints = 0;
+
     return ultDamage;
+
+
 }
 
 int Troll :: bulKathos()

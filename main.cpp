@@ -157,7 +157,7 @@ int main()
 
         random1 = (rand() % 5) + 1;
 
-        random2 = (rand() % 4) + 1;
+        random2 = (rand() % 3) + 1;
 
         //  if (verifyPhAttackP2 > 0)
         //     {
@@ -202,9 +202,9 @@ int main()
 
             // if(p1->getPoison() == 1){ cout<<"OPA: "<<p1->imprime()<<"\n\n";}
 
-            if( p1->getBleed() == 1){ p1->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; if(random3 == 2){ p1->removeBleed(); cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; }   }
+            if( p1->getBleed() == 1){ p1->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; sleep(2); if(random3 == 2){ p1->removeBleed();  cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; sleep(2); }   }
 
-            if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p1->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+            if( p1->getPoison() == 1){ p1->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; sleep(2); if(random1 == 2){ p1->removePoison();  cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n";  sleep(2);}   }
         
             // cout<<"OPA: "<<p1->imprime()<<"\n\n";
 
@@ -230,7 +230,7 @@ int main()
 
             chest = p1Action;
 
-            random2 = (rand() % 3) + 1;
+            random2 = (rand() % 2) + 1;
 
             if( p1->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ VOCE FICOU CONFUSO E NAO CONSEGUIU COMPLETAR A ACAO -+-+-+-\n\n"; sleep(3); p1Action = 10; if(random2 == 1){ p1->removeConfusion(); p1Action = chest; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; sleep(3); }   }
 
@@ -249,7 +249,7 @@ int main()
 
                 else
                 {
-                    phDamageP1 = p1->physicalDamageCalculator();
+                    phDamageP1 = p1->physicalDamageCalculator(p2);
                     verifyPhAttackP1 ++;
                     p2->receiveDamagePhys(phDamageP1);
                     p1->addMana(); //Função para adcionar 10 de mana em cada round. 
@@ -267,7 +267,7 @@ int main()
                     p2->receiveDamageMag(magicMenu);
                 }
                 
-                if(magicMenu == -2){continue;}
+                 if(magicMenu == -2){ sleep(2); cout << string( 100, '\n' ); continue;}
                 p1->addUltiPoints();
                 break;
 
@@ -335,6 +335,8 @@ int main()
 
         random3 = ((rand() % 4) + 1);
 
+        random2 = ((rand() % 3) + 1);
+
         //Sleep(1000);
 
             // if (verifyPhAttackP1 > 0) 
@@ -377,9 +379,9 @@ int main()
             //Imprime menu
             cout << string( 100, '\n' );
 
-            if( p2->getBleed() == 1){ p2->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; if(random3 == 2){ p2->removeBleed(); cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; }   }
+            if( p2->getBleed() == 1){ p2->receiveDamagePure(30); cout<<"\n\n\n-+-+-+ SANGRAMENTO (-30 DE VIDA!) -+-+-+-\n\n"; sleep(2); if(random3 == 2){ p2->removeBleed(); cout<<"\n\n\n-+-+-+ SANGRAMENTO ACABOU! -+-+-+-\n\n\n\n"; sleep(2); }   }
 
-            if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; if(random1 == 2){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n"; }   }
+            if( p2->getPoison() == 1){ p2->receiveDamagePure(50); cout<<"\n\n\n-+-+-+ ENVENENADO! (-50 DE VIDA!) -+-+-+-\n\n"; sleep(2); if(random1 == 2){ p2->removePoison(); cout<<"\n\n\n-+-+-+ VENENO ACABOU! -+-+-+-\n\n\n\n";  sleep(2); }   }
         
         while(1){
             
@@ -402,7 +404,7 @@ int main()
 
             chest2 = p2Action;
             
-            random2 = (rand() % 3) + 1;
+            random2 = (rand() % 2) + 1;
 
             if( p2->getConfusion() == 1){ cout<<"\n\n\n-+-+-+ VOCE FICOU CONFUSO E NAO CONSEGUIU COMPLETAR A ACAO -+-+-+-\n\n"; sleep(3); p2Action = 10; if(random2 == 1){ p2->removeConfusion(); p2Action = chest2; cout<<"\n\n\n-+-+-+ VOCE SAIU DA CONFUSAO! -+-+-+-\n\n\n\n"; sleep(3); }   }
 
@@ -420,7 +422,7 @@ int main()
                 }
                 else
                 {
-                    phDamageP1 = p2->physicalDamageCalculator();
+                    phDamageP1 = p2->physicalDamageCalculator(p1);
                     verifyPhAttackP2 ++;
                     p1->receiveDamagePhys(phDamageP1);
                     p2->addMana(); //Função para adcionar 10 de mana em cada round. 
@@ -441,7 +443,7 @@ int main()
                     verifyMgAttackP2;
                 }
 
-                if(magicMenu == -2){continue;}
+                if(magicMenu == -2){ sleep(2); cout << string( 100, '\n' ); continue;}
                 p2->addUltiPoints();
                 break;
 
