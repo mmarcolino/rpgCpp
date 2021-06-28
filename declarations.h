@@ -2091,7 +2091,7 @@ int Zombie :: useUlti(ICharacter *enemie)
             }
 
 
-    if( this->numberRound > -1 && this->numberRound < 6)
+    if( this->numberRound > -1 && this->numberRound < 4)
     {
 
         this->numberRound++;
@@ -2111,7 +2111,14 @@ int Zombie :: useUlti(ICharacter *enemie)
 
     }
 
-    if(this->numberRound == 6){ this->numberRound = -1;}
+    if(this->numberRound == 4){ this->numberRound = -1; 
+    
+        cout<<"\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n"
+        <<"            EFEITO DA NECROMANCIA ACABOU!"
+        <<"\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n";
+    
+    
+    }
 
 
 
