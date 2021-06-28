@@ -49,8 +49,8 @@ int main()
         break;
 
     case 3:
-        // p1 = new Wizard (mp1, wp1); //Mago
-        // p1 -> initializeClass();
+        p1 = new Wizard (mp1, wp1); //Mago
+        p1 -> initializeClass();
         break;
     
     case 4:
@@ -64,13 +64,13 @@ int main()
         break;
 
     case 6:
-        // p1 = new Troll (mp1, wp1); //Troll
-        // p1 -> initializeClass();
+        p1 = new Troll (mp1, wp1); //Troll
+        p1 -> initializeClass();
         break;
 
     case 7:
-        // p1 = new Dragon (mp1, wp1); //Dragão
-        // p1 -> initializeClass();
+        p1 = new Dragon (mp1, wp1); //Dragão
+        p1 -> initializeClass();
         break;
 
     case 8:
@@ -114,8 +114,8 @@ int main()
         break;
 
     case 3:
-        // p2 = new Wizard (mp2, wp2); //Mago
-        // p2 -> initializeClass();
+        p2 = new Wizard (mp2, wp2); //Mago
+        p2 -> initializeClass();
         break;
     
     case 4:
@@ -129,13 +129,13 @@ int main()
         break;
 
     case 6:
-        // p2 = new Troll (mp2, wp2); //Troll
-        // p2 -> initializeClass();
+        p2 = new Troll (mp2, wp2); //Troll
+        p2 -> initializeClass();
         break;
 
     case 7:
-        // p2 = new Dragon (mp2, wp2); //Dragao
-        // p2 -> initializeClass();
+        p2 = new Dragon (mp2, wp2); //Dragao
+        p2 -> initializeClass();
         break;
 
     case 8:
@@ -282,6 +282,7 @@ int main()
                 }
                 
                 else
+                cout << string( 100, '\n' );
                 continue;
 
             case 4: //Status
@@ -300,6 +301,7 @@ int main()
                 {
                     cout << "-+-+-+- Ulti indisponivel -+-+-+-";
                        sleep(3);
+                       cout << string( 100, '\n' );
                     continue;
                 }
 
@@ -453,6 +455,7 @@ int main()
                 }
                 
                 else
+                cout << string( 100, '\n' );
                 continue;
 
             case 4: //Status
@@ -471,6 +474,7 @@ int main()
                 {
                     cout << "-+-+-+- Ulti indisponivel -+-+-+-";
                        sleep(3);
+                       cout << string( 100, '\n' );
                     continue;
                 }
 
