@@ -292,7 +292,7 @@ int main()
             case 5: //Ulti
                 if(p1 -> getUltiPoints() == p1 -> getMaxUltiPoints())
                 {
-                    p1 -> useUlti(p2, roundsP1);
+                    p1 -> useUlti(p2);
                     break;
                 }
 
@@ -312,7 +312,6 @@ int main()
             }
             break;
         }
-            roundsP1 = p1->countRounds();
         }
         else //Caso o player 1 seja derrotado
         {
@@ -464,7 +463,7 @@ int main()
             case 5: //Ulti
                 if(p2-> getUltiPoints() == p2 -> getMaxUltiPoints())
                 {
-                    p2 -> useUlti(p1, roundsP2);
+                    p2 -> useUlti(p1);
                     break;
                 }
 
@@ -485,7 +484,6 @@ int main()
             }
             break;
         }
-            roundsP2 = p2->countRounds();
         }
 
         else //Caso o player dois seja derrotado
